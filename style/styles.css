@@ -13,3 +13,7 @@ body {
 .mainCardPadd {
     padding: 3% 2% 6% 6%;
 }
+
+.txtCenter {
+    text-align: center;
+}
