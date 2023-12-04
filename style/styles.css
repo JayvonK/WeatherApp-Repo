@@ -1,0 +1,15 @@
+body {
+    background-color: cornflowerblue;
+}
+
+.white {
+    background-color: white;
+}
+
+.locationSize {
+    font-size: 35px;
+}
+
+.mainCardPadd {
+    padding: 3% 2% 6% 6%;
+}
