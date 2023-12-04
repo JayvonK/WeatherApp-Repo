@@ -21,7 +21,19 @@ API DATA:
  4. High and low temp
  5. Name of city
  6. Dates
- 7. 
+
+
+WHAT WAS I ABLE TO DO:
+ 1. Was able to set up most of the basic structure
+ 2. Was able to console log most of the API fetches
+ 3. Was able to create github repo
+ 4. Was able to host website on Vercel
+
+WHAT I PLAN ON DOING:
+ 1. Finish making basic structure of website
+ 2. Start finding assets used for the website
+ 3. Finish logging all the fetches I need to pull from the API's
+ 4. Plan out how to make some of the animations/functionalities of website
 
 
 
