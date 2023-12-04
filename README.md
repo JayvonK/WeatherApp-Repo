@@ -33,7 +33,8 @@ WHAT I PLAN ON DOING:
  1. Finish making basic structure of website
  2. Start finding assets used for the website
  3. Finish logging all the fetches I need to pull from the API's
- 4. Plan out how to make some of the animations/functionalities of website
+ 4. Start Displaying fetched info on website
+ 5. Plan out how to make some of the animations/functionalities of website
 
 
 
