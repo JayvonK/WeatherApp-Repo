@@ -22,8 +22,8 @@
             <h1>climate.xchange</h1>
           </div>
           <div class="col d-flex justify-content-end" style="border: none;">
-            <input class="form-control me-4" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+            <input id="userInput" class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
+            <button id="searchBtn" class="btn btn-outline-success" type="submit">Search</button>
           </div>
         </div>
       </div>
@@ -33,16 +33,21 @@
     </div>
 
     <div class="row">
-      <div id="favInject" class="col"></div>
+      <div id="favInject" class="col">
+        <div style="height: 1080px; background-color: white;">
+
+        </div>
+      </div>
       <div class="col-6">
         <div class="row mt-5">
           <div class="col">
             <div class="card" style="width: 100%;">
               <div class="card-body mainCardPadd">
-                <h5 class="card-title locationSize">Stockton</h5>
-                <h6 id="" class="card-subtitle mb-2 text-body-secondary" style="font-size: 100px;"> <img id="mainIcon" src="./assets/"
-                    alt="...">54F</h6>
-                <p class="card-text">Clear</p>
+                <h5 id="currCity" class="card-title locationSize">Stockton</h5>
+
+                <h6 class="card-subtitle mb-2 text-body-secondary" style="font-size: 100px;"><img id="mainIcon"
+                    src="./assets/" alt="..."><span id="currTemp">54F</span></h6>
+                <p id="currWeather" class="card-text">Clear</p>
               </div>
             </div>
           </div>
@@ -77,7 +82,7 @@
               <div class="card-body txtCenter">
                 <h5 class="card-title">Tue 12/8</h5>
                 <img src="" alt="...">
-                <p class="card-text">74F | 34F</p>
+                <p class="card-text"><span id="highTemp1">74F</span> | <span id="lowTemp1">34F</span></p>
               </div>
             </div>
           </div>
@@ -86,7 +91,7 @@
               <div class="card-body txtCenter">
                 <h5 class="card-title">Tue 12/8</h5>
                 <img src="" alt="...">
-                <p class="card-text">74F | 34F</p>
+                <p class="card-text"><span id="highTemp2">74F</span> | <span id="lowTemp2">34F</span></p>
               </div>
             </div>
           </div>
@@ -95,7 +100,7 @@
               <div class="card-body txtCenter">
                 <h5 class="card-title">Tue 12/8</h5>
                 <img src="" alt="...">
-                <p class="card-text">74F | 34F</p>
+                <p class="card-text"><span id="highTemp3">74F</span> | <span id="lowTemp3">34F</span></p>
               </div>
             </div>
           </div>
@@ -104,7 +109,7 @@
               <div class="card-body txtCenter">
                 <h5 class="card-title">Tue 12/8</h5>
                 <img src="" alt="...">
-                <p class="card-text">74F | 34F</p>
+                <p class="card-text"><span id="highTemp4">74F</span> | <span id="lowTemp4">34F</span></p>
               </div>
             </div>
           </div>
@@ -113,7 +118,7 @@
               <div class="card-body txtCenter">
                 <h5 class="card-title">Tue 12/8</h5>
                 <img src="" alt="...">
-                <p class="card-text">74F | 34F</p>
+                <p class="card-text"><span id="highTemp5">74F</span> | <span id="lowTemp5">34F</span></p>
               </div>
             </div>
           </div>

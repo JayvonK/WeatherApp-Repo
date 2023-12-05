@@ -4,8 +4,8 @@ function LowestTemp(n1, n2, n3, n4, n5, n6, n7, n8){
     let min = numArray[0];
     numArray.push(n1, n2, n3, n4, n5, n6, n7, n8);
     
-    for(let i = 0; i <= numArray.length; i++){
-        if(numArray[0] > numArray[i]){
+    for(let i = 0; i < numArray.length; i++){
+        if(numArray[0] >= numArray[i]){
             numArray[0] = numArray[i];
             min = numArray[0];
         }
