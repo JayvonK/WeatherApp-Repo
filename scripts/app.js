@@ -3,6 +3,7 @@ import { KelvinConvert } from "./kelvinConvert.js";
 import { LowestTemp, HighTemp } from "./highAndLow.js";
 import { Search } from "./searchFunctions.js";
 import { CurrentTime } from "./currentTime.js";
+import { TimeOnly } from "./timOnly.js";
 
 let mainIcon = document.getElementById("mainIcon");
 let currTemp = document.getElementById("currTemp");
@@ -53,12 +54,14 @@ async function CurrentApiCall(a, b, c){
 
     data.weather[0].icon = "./assets/icons8-rain-96.png"
     console.log(data);
+    console.log(data.dt)
 
     currTemp.innerText = Math.floor(KelvinConvert(data.main.temp));
     mainIcon.src = data.weather[0].icon;
     currCity.textContent = data.name;
     currWeather.innerText = data.weather[0].main;
     currTime.innerText = TimeOnly(CurrentTime(data.dt));
+
 }
 
 
@@ -133,17 +136,6 @@ searchBtn.addEventListener('click', function(e){
     Search(userInput.value);
 })
 
-function TimeOnly(time){
-    let newTime = "";
-    for(let i = 0; i < time.length; i++){
-        if(time[i] === ","){
-            for(let j = i + 1; j < time.length; j++){
-                newTime += time[j];
-            }
-        }
-    }
-    return newTime;
-}
 
 
 

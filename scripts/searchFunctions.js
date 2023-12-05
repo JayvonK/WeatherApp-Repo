@@ -2,6 +2,8 @@
 import { apiKey } from "./enivronment.js";
 import { KelvinConvert } from "./kelvinConvert.js";
 import { LowestTemp, HighTemp } from "./highAndLow.js";
+import { TimeOnly } from "./timOnly.js";
+import { CurrentTime } from "./currentTime.js";
 
 function Search(city){
     SearchCurrent(city, apiKey);
@@ -17,10 +19,12 @@ async function SearchCurrent(cityName, k){
 
     data.weather[0].icon = "./assets/icons8-rain-96.png"
 
+    console.log(data.dt);
     currTemp.innerText = Math.floor(KelvinConvert(data.main.temp));
     mainIcon.src = data.weather[0].icon;
     currCity.textContent = data.name;
     currWeather.innerText = data.weather[0].main;
+    currTime.innerText = TimeOnly(CurrentTime(data.dt))
 }
 
 async function Search5Day(cityName, k){
