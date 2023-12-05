@@ -52,7 +52,7 @@ async function CurrentApiCall(a, b, c){
     console.log("City: " + data.name)
 
     data.weather[0].icon = "./assets/icons8-rain-96.png"
-    console.log(CurrentTime(data.dt));
+    console.log(data);
 
     currTemp.innerText = Math.floor(KelvinConvert(data.main.temp));
     mainIcon.src = data.weather[0].icon;
