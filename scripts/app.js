@@ -45,7 +45,6 @@ function error(error){
 async function CurrentApiCall(a, b, c){
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${a}&lon=${b}&appid=${c}`)
     const data = await promise.json();
-    let area = data.name;
 
     console.log("Current Temp: " + Math.floor(KelvinConvert(data.main.temp)));
     console.log("Current max temp: " + Math.floor(KelvinConvert(data.main.temp_max)) + ", Current min temp: " + Math.floor(KelvinConvert(data.main.temp_min)));
@@ -53,13 +52,13 @@ async function CurrentApiCall(a, b, c){
     console.log("City: " + data.name)
 
     data.weather[0].icon = "./assets/icons8-rain-96.png"
-    console.log(data);
+    console.log(CurrentTime(data.dt));
 
     currTemp.innerText = Math.floor(KelvinConvert(data.main.temp));
     mainIcon.src = data.weather[0].icon;
     currCity.textContent = data.name;
     currWeather.innerText = data.weather[0].main;
-    // currTime.innerText = 
+    currTime.innerText = TimeOnly(CurrentTime(data.dt));
 }
 
 
@@ -134,9 +133,17 @@ searchBtn.addEventListener('click', function(e){
     Search(userInput.value);
 })
 
-
-
-
+function TimeOnly(time){
+    let newTime = "";
+    for(let i = 0; i < time.length; i++){
+        if(time[i] === ","){
+            for(let j = i + 1; j < time.length; j++){
+                newTime += time[j];
+            }
+        }
+    }
+    return newTime;
+}
 
 
 
