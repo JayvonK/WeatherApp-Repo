@@ -2,130 +2,136 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Weather App Recreation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App Recreation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/styles.css">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row white py-2">
-            <div class="col">
+  <div class="container-fluid">
+    <div class="row white py-2">
+      <div class="col">
 
-            </div>
-            <div class="col-6">
-                <div class="row">
-                    <div class="col">
-                        <h1>climate.xchange</h1>
-                    </div>
-                    <div class="col"></div>
-                </div>
-            </div>
-            <div class="col">
-
-            </div>
-        </div>
-
+      </div>
+      <div class="col-6">
         <div class="row">
-            <div class="col"></div>
-            <div class="col-6">
-                <div class="row">
-                    <div class="col">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body mainCardPadd">
-                              <h5 class="card-title locationSize">Stockton</h5>
-                              <h6 id="" class="card-subtitle mb-2 text-body-secondary" style="font-size: 100px;"> <img src="..." alt="...">54F</h6>
-                              <p class="card-text">Clear</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body">
-                              <h5 class="card-title locationSize">Today</h5>
-                              <div class="row">
-                                <div class="col">
-                                    <h2>8 am</h2>
-                                    <img src="..." alt="...">
-                                    <h1>32F</h1>
-                                </div>
-                                <div class="col">
-                                    <h2>8 am</h2>
-                                    <img src="..." alt="...">
-                                    <h1>32F</h1>
-                                </div>
-                                <div class="col">
-                                    <h2>8 am</h2>
-                                    <img src="..." alt="...">
-                                    <h1>32F</h1>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body txtCenter">
-                              <h5 class="card-title">Tue 12/8</h5>
-                              <img src="" alt="...">
-                              <p class="card-text">74F | 34F</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body txtCenter">
-                              <h5 class="card-title">Tue 12/8</h5>
-                              <img src="" alt="...">
-                              <p class="card-text">74F | 34F</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body txtCenter">
-                              <h5 class="card-title">Tue 12/8</h5>
-                              <img src="" alt="...">
-                              <p class="card-text">74F | 34F</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body txtCenter">
-                              <h5 class="card-title">Tue 12/8</h5>
-                              <img src="" alt="...">
-                              <p class="card-text">74F | 34F</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body txtCenter">
-                              <h5 class="card-title">Tue 12/8</h5>
-                              <img src="" alt="...">
-                              <p class="card-text">74F | 34F</p>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-            </div>
-            <div class="col"></div>
+          <div class="col">
+            <h1>climate.xchange</h1>
+          </div>
+          <div class="col d-flex justify-content-end" style="border: none;">
+            <input class="form-control me-4" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
         </div>
+      </div>
+      <div class="col">
 
+      </div>
+    </div>
 
+    <div class="row">
+      <div id="favInject" class="col"></div>
+      <div class="col-6">
+        <div class="row mt-5">
+          <div class="col">
+            <div class="card" style="width: 100%;">
+              <div class="card-body mainCardPadd">
+                <h5 class="card-title locationSize">Stockton</h5>
+                <h6 id="" class="card-subtitle mb-2 text-body-secondary" style="font-size: 100px;"> <img id="mainIcon" src="./assets/"
+                    alt="...">54F</h6>
+                <p class="card-text">Clear</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 100%; height: 100%;">
+              <div class="card-body">
+                <h5 class="card-title locationSize">Today</h5>
+                <div class="row">
+                  <div class="col">
+                    <h2>8 am</h2>
+                    <img src="..." alt="...">
+                    <h1>32F</h1>
+                  </div>
+                  <div class="col">
+                    <h2>8 am</h2>
+                    <img src="..." alt="...">
+                    <h1>32F</h1>
+                  </div>
+                  <div class="col">
+                    <h2>8 am</h2>
+                    <img src="..." alt="...">
+                    <h1>32F</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <div class="card" style="width: 100%;">
+              <div class="card-body txtCenter">
+                <h5 class="card-title">Tue 12/8</h5>
+                <img src="" alt="...">
+                <p class="card-text">74F | 34F</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 100%;">
+              <div class="card-body txtCenter">
+                <h5 class="card-title">Tue 12/8</h5>
+                <img src="" alt="...">
+                <p class="card-text">74F | 34F</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 100%;">
+              <div class="card-body txtCenter">
+                <h5 class="card-title">Tue 12/8</h5>
+                <img src="" alt="...">
+                <p class="card-text">74F | 34F</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 100%;">
+              <div class="card-body txtCenter">
+                <h5 class="card-title">Tue 12/8</h5>
+                <img src="" alt="...">
+                <p class="card-text">74F | 34F</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 100%;">
+              <div class="card-body txtCenter">
+                <h5 class="card-title">Tue 12/8</h5>
+                <img src="" alt="...">
+                <p class="card-text">74F | 34F</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col-5">
+            <div class="row mt-4">
+              <button id="favBtn" class="btn btn-primary py-3">Open Your Favorite Places</button>
+            </div>
 
-
-
-
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+      </div>
+      <div class="col"></div>
     </div>
 
 
@@ -133,11 +139,18 @@
 
 
 
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script type="module" src="./scripts/app.js"></script>
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script type="module" src="./scripts/app.js"></script>
 </body>
 
 </html>

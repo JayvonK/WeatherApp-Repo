@@ -1,6 +1,8 @@
 import { apiKey } from "./enivronment.js";
 import { KelvinConvert } from "./kelvinConvert.js";
+import { LowestTemp, HighTemp } from "./highAndLow.js";
 
+let mainIcon = document.getElementById("mainIcon");
 navigator.geolocation.getCurrentPosition(success, error);
 
 
@@ -17,17 +19,25 @@ function error(error){
     console.log(error.message);
 }
 
+
+//API Call for current weather data
 async function CurrentApiCall(a, b, c){
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${a}&lon=${b}&appid=${c}`)
     const data = await promise.json();
+    let area = data.name;
 
-    console.log(data)
     console.log("Current Temp: " + Math.floor(KelvinConvert(data.main.temp)));
     console.log("Current max temp: " + Math.floor(KelvinConvert(data.main.temp_max)) + ", Current min temp: " + Math.floor(KelvinConvert(data.main.temp_min)));
     console.log("Current Weather: " + data.weather[0].main)
     console.log("City: " + data.name)
+
+    data.weather[0].icon = "./assets/icons8-rain-96.png"
+    console.log(data);
+    
+    mainIcon.src = data.weather[0].icon;
 }
 
+//API Call for five day forecast
 async function FiveDayApiCall(a, b, c) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${a}&lon=${b}&appid=${c}`)
     const data = await promise.json();
@@ -52,36 +62,24 @@ async function FiveDayApiCall(a, b, c) {
     + ", 5th day max temp: " 
     + Math.floor(KelvinConvert(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max))));
 
-
+    console.log("9am temp: " + Math.floor(KelvinConvert(data.list[0].main.temp)) + ", Noon temp: " + Math.floor(KelvinConvert(data.list[2].main.temp)) + ", 9pm temp: " + Math.floor(KelvinConvert(data.list[4].main.temp)));
 }
 
-//Function for finding lowest temp
-function LowestTemp(n1, n2, n3, n4, n5, n6, n7, n8){
-    let numArray = [];
-    let min = numArray[0];
-    numArray.push(n1, n2, n3, n4, n5, n6, n7, n8);
-    
-    for(let i = 0; i <= numArray.length; i++){
-        if(numArray[0] > numArray[i]){
-            numArray[0] = numArray[i];
-            min = numArray[0];
-        }
-    }
-    return min;
+
+//API Call for current time
+async function CurrentTimeApiCall(area){
+    const promise = await fetch(
+        `http://worldtimeapi.org/api/timezone/${area}`)
+    const data = await promise.json();
+
+    console.log(data);
 }
 
-//Function for finding highest temp
-function HighTemp(n1, n2, n3, n4, n5, n6, n7, n8){
-    let numArray = [];
-    let maxx = numArray[0];
-    numArray.push(n1, n2, n3, n4, n5, n6, n7, n8);
-    
-    for(let i = 0; i < numArray.length; i++){
-        if(numArray[0] <= numArray[i]){
-            numArray[0] = numArray[i];
-            maxx = numArray[0];
-        }
-    }
-    return maxx;
-}
+let favBtn = document.getElementById("favBtn");
+let favInject = document.getElementById("favInject");
+
+favBtn.addEventListener('click', function(e){
+
+})
+
 
