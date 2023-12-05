@@ -22,6 +22,7 @@ let lowTemp5 = document.getElementById("lowTemp5");
 let userInput = document.getElementById("userInput");
 let searchBtn = document.getElementById("searchBtn");
 let currTime = document.getElementById("currTime");
+let currDay = document.getElementById("currDay")
 
 
 
@@ -34,7 +35,6 @@ async function success(pos){
 
     CurrentApiCall(lat, long, apiKey);
     FiveDayApiCall(lat, long, apiKey);
-
 }
 
 function error(error){
@@ -61,7 +61,8 @@ async function CurrentApiCall(a, b, c){
     currCity.textContent = data.name;
     currWeather.innerText = data.weather[0].main;
     currTime.innerText = TimeOnly(CurrentTime(data.dt));
-
+    let dayValue = new Date(CurrentTime(data.dt)).getDay();
+    currDay.innerText = FindDay(dayValue);
 }
 
 
@@ -136,7 +137,88 @@ searchBtn.addEventListener('click', function(e){
     Search(userInput.value);
 })
 
+function FindDay(day){
+    switch(day){
+        case 0:
+            return "Sunday";
+        break;
+        case 1:
+            return "Monday";
+        break;
+        case 2:
+            return "Tuesday";
+        break;
+        case 3:
+            return "Wednesday";
+        break;
+        case 4:
+            return "Thursday";
+        break;
+        case 5:
+            return "Friday";
+        break;
+        case 6:
+            return "Saturday";
+        break;
+    }
+}
 
 
-
-
+function IfIcon(icon){
+    switch(icon){
+        case "01d":
+            return "./assets/sun (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "02n":
+            return "./assets/moon (1).png";
+        break;
+        case "02d":
+            return "./assets/moon (1).png";
+        break;
+        case "03n":
+            return "./assets/moon (1).png";
+        break;
+        case "03d":
+            return "./assets/moon (1).png";
+        break;
+        case "04n":
+            return "./assets/moon (1).png";
+        break;
+        case "04d":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break; 
+        case "01d":
+            return "./assets/sun (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+        case "01n":
+            return "./assets/moon (1).png";
+        break;
+    }
+}
