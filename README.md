@@ -48,7 +48,15 @@ WHAT I PLAN ON DOING 12/5:
  3. Plan on building out the favorite locations section
 
 
+WHAT I WAS ABLE TO DO, 12/6:
+1. Added assets to website
+2. Displayed all fetched icons and week days
+3. Added more functionality to search bar and favorite section
 
+WHAT I PLAN ON DOING 12/6:
+1. Finish making search bar and create local storage system
+2. Make functions to display current time for any location
+3. Finish making favorite section
 
 
 
