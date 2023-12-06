@@ -1,6 +1,5 @@
 //Search Function
 import { apiKey } from "./enivronment.js";
-import { KelvinConvert } from "./kelvinConvert.js";
 import { LowestTemp, HighTemp } from "./highAndLow.js";
 import { TimeOnly } from "./timOnly.js";
 import { CurrentTime } from "./currentTime.js";
