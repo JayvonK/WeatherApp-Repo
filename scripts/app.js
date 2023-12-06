@@ -4,6 +4,7 @@ import { Search } from "./searchFunctions.js";
 import { CurrentTime } from "./currentTime.js";
 import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
+import { WeekDays, FindDay } from "./weekDayFunctions.js";
 
 let mainIcon = document.getElementById("mainIcon");
 let day1Icon = document.getElementById("day1Icon");
@@ -33,14 +34,19 @@ let lowTemp5 = document.getElementById("lowTemp5");
 let userInput = document.getElementById("userInput");
 let searchBtn = document.getElementById("searchBtn");
 let currTime = document.getElementById("currTime");
-let currDay = document.getElementById("currDay")
+let currDay = document.getElementById("currDay");
+let weekDay1 = document.getElementById("weekDay1");
+let weekDay2 = document.getElementById("weekDay2");
+let weekDay3 = document.getElementById("weekDay3");
+let weekDay4 = document.getElementById("weekDay4");
+let weekDay5 = document.getElementById("weekDay5");
 
 
 
 navigator.geolocation.getCurrentPosition(success, error);
 
 
-async function success(pos){
+async function success(pos) {
     let lat = pos.coords.latitude;
     let long = pos.coords.longitude;
 
@@ -48,13 +54,13 @@ async function success(pos){
     FiveDayApiCall(lat, long, apiKey);
 }
 
-function error(error){
+function error(error) {
     console.log(error.message);
 }
 
 
 //API Call for current weather data
-async function CurrentApiCall(a, b, c){
+async function CurrentApiCall(a, b, c) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${a}&lon=${b}&appid=${c}&units=imperial`)
     const data = await promise.json();
 
@@ -63,7 +69,7 @@ async function CurrentApiCall(a, b, c){
     console.log("Current Weather: " + data.weather[0].main)
     console.log("City: " + data.name)
 
-    
+
     console.log(data);
     console.log(data.dt)
 
@@ -74,6 +80,14 @@ async function CurrentApiCall(a, b, c){
     currTime.innerText = TimeOnly(CurrentTime(data.dt));
     let dayValue = new Date(CurrentTime(data.dt)).getDay();
     currDay.innerText = FindDay(dayValue);
+
+    let weekDayArray = WeekDays(FindDay(dayValue));
+    weekDay1.innerText = weekDayArray[0];
+    weekDay2.innerText = weekDayArray[1];
+    weekDay3.innerText = weekDayArray[2];
+    weekDay4.innerText = weekDayArray[3];
+    weekDay5.innerText = weekDayArray[4];
+
 }
 
 
@@ -93,14 +107,14 @@ async function FiveDayApiCall(a, b, c) {
 
     //Console logging fourth day 
     console.log("4th day min temp: " + LowestTemp(data.list[24].main.temp_min, data.list[25].main.temp_min, data.list[26].main.temp_min, data.list[27].main.temp_min, data.list[28].main.temp_min, data.list[29].main.temp_min, data.list[30].main.temp_min, data.list[31].main.temp_min)
-     + ", 4th day max temp: "
-      + Math.floor(HighTemp(data.list[24].main.temp_max, data.list[25].main.temp_max, data.list[26].main.temp_max, data.list[27].main.temp_max, data.list[28].main.temp_max, data.list[29].main.temp_max, data.list[30].main.temp_max, data.list[31].main.temp_max)));
+        + ", 4th day max temp: "
+        + Math.floor(HighTemp(data.list[24].main.temp_max, data.list[25].main.temp_max, data.list[26].main.temp_max, data.list[27].main.temp_max, data.list[28].main.temp_max, data.list[29].main.temp_max, data.list[30].main.temp_max, data.list[31].main.temp_max)));
 
     //Console logging fifth day
-    console.log("5th day min temp: " + 
-    Math.floor(LowestTemp(data.list[32].main.temp_min, data.list[33].main.temp_min, data.list[34].main.temp_min, data.list[35].main.temp_min, data.list[36].main.temp_min, data.list[37].main.temp_min, data.list[38].main.temp_min, data.list[39].main.temp_min)) 
-    + ", 5th day max temp: " 
-    + Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max)));
+    console.log("5th day min temp: " +
+        Math.floor(LowestTemp(data.list[32].main.temp_min, data.list[33].main.temp_min, data.list[34].main.temp_min, data.list[35].main.temp_min, data.list[36].main.temp_min, data.list[37].main.temp_min, data.list[38].main.temp_min, data.list[39].main.temp_min))
+        + ", 5th day max temp: "
+        + Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max)));
 
 
 
@@ -128,7 +142,7 @@ async function FiveDayApiCall(a, b, c) {
     //Displaying Max temps for 5 day forecast
     highTemp1.innerText = Math.floor(HighTemp(data.list[0].main.temp_max, data.list[1].main.temp_max, data.list[2].main.temp_max, data.list[3].main.temp_max, data.list[4].main.temp_max, data.list[5].main.temp_max, data.list[6].main.temp_max, data.list[7].main.temp_max)) + "°F";
 
-    
+
 
 
 
@@ -163,62 +177,67 @@ async function FiveDayApiCall(a, b, c) {
 
     //Day 1 Icon and Temperature
 
-    for(let i = 0; i < 8; i++){
+    for (let i = 0; i < 8; i++) {
 
         let tempMax = Math.floor(HighTemp(data.list[0].main.temp_max, data.list[1].main.temp_max, data.list[2].main.temp_max, data.list[3].main.temp_max, data.list[4].main.temp_max, data.list[5].main.temp_max, data.list[6].main.temp_max, data.list[7].main.temp_max));
 
         let maxTemp = Math.floor(data.list[i].main.temp_max);
-        if(maxTemp === tempMax){
+        if (maxTemp === tempMax) {
             day1Icon.src = ChangeIcon(data.list[i].weather[0].icon);
+            console.log(data.list[i].weather[0].description);
         }
     }
 
 
     //Day 2 Icon and Temperature
 
-    for(let i = 8; i < 16; i++){
+    for (let i = 8; i < 16; i++) {
 
         let tempMax = Math.floor(HighTemp(data.list[8].main.temp_max, data.list[9].main.temp_max, data.list[10].main.temp_max, data.list[11].main.temp_max, data.list[12].main.temp_max, data.list[13].main.temp_max, data.list[14].main.temp_max, data.list[15].main.temp_max));
 
         let maxTemp = Math.floor(data.list[i].main.temp_max);
-        if(maxTemp === tempMax){
+        if (maxTemp === tempMax) {
             day2Icon.src = ChangeIcon(data.list[i].weather[0].icon);
+            console.log(data.list[i].weather[0].description);
         }
     }
 
     //Day 3 Icon and Temp
 
-    for(let i = 16; i < 24; i++){
+    for (let i = 16; i < 24; i++) {
 
         let tempMax = Math.floor(HighTemp(data.list[16].main.temp_max, data.list[17].main.temp_max, data.list[18].main.temp_max, data.list[19].main.temp_max, data.list[20].main.temp_max, data.list[21].main.temp_max, data.list[22].main.temp_max, data.list[23].main.temp_max));
 
         let maxTemp = Math.floor(data.list[i].main.temp_max);
-        if(maxTemp === tempMax){
+        if (maxTemp === tempMax) {
             day3Icon.src = ChangeIcon(data.list[i].weather[0].icon);
+            console.log(data.list[i].weather[0].description);
         }
     }
 
 
     //Day 4 Icon and Temp
-    for(let i = 24; i < 32; i++){
+    for (let i = 24; i < 32; i++) {
 
         let tempMax = Math.floor(HighTemp(data.list[24].main.temp_max, data.list[25].main.temp_max, data.list[26].main.temp_max, data.list[27].main.temp_max, data.list[28].main.temp_max, data.list[29].main.temp_max, data.list[30].main.temp_max, data.list[31].main.temp_max));
 
         let maxTemp = Math.floor(data.list[i].main.temp_max);
-        if(maxTemp === tempMax){
+        if (maxTemp === tempMax) {
             day4Icon.src = ChangeIcon(data.list[i].weather[0].icon);
+            console.log(data.list[i].weather[0].description);
         }
     }
 
 
     //Day 5 Icon and Temp
-    for(let i = 32; i < 40; i++){
+    for (let i = 32; i < 40; i++) {
 
         let tempMax = Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max));
 
         let maxTemp = Math.floor(data.list[i].main.temp_max);
-        if(maxTemp === tempMax){
+        if (maxTemp === tempMax) {
             day5Icon.src = ChangeIcon(data.list[i].weather[0].icon);
+            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -226,7 +245,7 @@ async function FiveDayApiCall(a, b, c) {
 
 
 //API Call for current time
-async function CurrentTimeApiCall(area){
+async function CurrentTimeApiCall(area) {
     const promise = await fetch(
         `http://worldtimeapi.org/api/timezone/${area}`)
     const data = await promise.json();
@@ -237,37 +256,13 @@ async function CurrentTimeApiCall(area){
 let favBtn = document.getElementById("favBtn");
 let favInject = document.getElementById("favInject");
 
-favBtn.addEventListener('click', function(e){
+favBtn.addEventListener('click', function (e) {
 
 })
 
-searchBtn.addEventListener('click', function(e){
+searchBtn.addEventListener('click', function (e) {
     Search(userInput.value);
 })
 
-function FindDay(day){
-    switch(day){
-        case 0:
-            return "Sunday";
-        break;
-        case 1:
-            return "Monday";
-        break;
-        case 2:
-            return "Tuesday";
-        break;
-        case 3:
-            return "Wednesday";
-        break;
-        case 4:
-            return "Thursday";
-        break;
-        case 5:
-            return "Friday";
-        break;
-        case 6:
-            return "Saturday";
-        break;
-    }
-}
+export { weekDay1, weekDay2, weekDay3, weekDay4, weekDay5, highTemp1, highTemp2, highTemp3, highTemp4, highTemp5 }
 
