@@ -4,6 +4,7 @@ import { LowestTemp, HighTemp } from "./highAndLow.js";
 import { Search } from "./searchFunctions.js";
 import { CurrentTime } from "./currentTime.js";
 import { TimeOnly } from "./timOnly.js";
+import { ChangeIcon } from "./changeIcon.js";
 
 let mainIcon = document.getElementById("mainIcon");
 let currTemp = document.getElementById("currTemp");
@@ -52,12 +53,12 @@ async function CurrentApiCall(a, b, c){
     console.log("Current Weather: " + data.weather[0].main)
     console.log("City: " + data.name)
 
-    data.weather[0].icon = "./assets/icons8-rain-96.png"
+    
     console.log(data);
     console.log(data.dt)
 
     currTemp.innerText = Math.floor(KelvinConvert(data.main.temp));
-    mainIcon.src = data.weather[0].icon;
+    mainIcon.src = ChangeIcon(data.weather[0].icon);
     currCity.textContent = data.name;
     currWeather.innerText = data.weather[0].main;
     currTime.innerText = TimeOnly(CurrentTime(data.dt));
@@ -163,62 +164,3 @@ function FindDay(day){
     }
 }
 
-
-function IfIcon(icon){
-    switch(icon){
-        case "01d":
-            return "./assets/sun (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "02n":
-            return "./assets/moon (1).png";
-        break;
-        case "02d":
-            return "./assets/moon (1).png";
-        break;
-        case "03n":
-            return "./assets/moon (1).png";
-        break;
-        case "03d":
-            return "./assets/moon (1).png";
-        break;
-        case "04n":
-            return "./assets/moon (1).png";
-        break;
-        case "04d":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break; 
-        case "01d":
-            return "./assets/sun (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-        case "01n":
-            return "./assets/moon (1).png";
-        break;
-    }
-}
