@@ -34,18 +34,15 @@
 
     <div class="row">
       <div id="favInject" class="col">
-        <div style="height: 1080px; background-color: white;">
-
-        </div>
       </div>
       <div class="col-6">
         <div class="row mt-5">
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card" style="width: 100%; height: 100%;">
               <div class="card-body mainCardPadd">
                 <h5 id="currCity" class="card-title locationSize">Stockton</h5>
 
-                <h6 class="card-subtitle mb-2 text-body-secondary" style="font-size: 100px;"><img id="mainIcon"
+                <h6 class="card-subtitle mb-2 text-body-secondary" style="font-size: 100px;"><img class="mainIconSize" id="mainIcon"
                     src="./assets/" alt="..."><span id="currTemp">54F</span></h6>
                 <p id="currWeather" class="card-text">Clear</p>
               </div>
@@ -131,7 +128,27 @@
           <div class="col"></div>
           <div class="col-5">
             <div class="row mt-4">
-              <button id="favBtn" class="btn btn-primary py-3">Open Your Favorite Places</button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                Open Your Favorite Places
+              </button>
+              
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.75%;">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div>
+                    Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                  </div>
+                  <div class="dropdown mt-3">
+                    <button></button>
+                    </button>
+                    
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -143,17 +160,7 @@
       <div class="col"></div>
     </div>
 
-
-
-
-
-
   </div>
-
-
-
-
-
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

@@ -45,7 +45,7 @@ function ChangeIcon(icon){
         case "13d":
             return "./assets/wi-day-snow.svg";
         break;
-        case "13d":
+        case "13n":
             return "./assets/wi-night-alt-snow.svg";
         break;
         case "50d":

@@ -256,11 +256,11 @@ async function CurrentTimeApiCall(area) {
 let favBtn = document.getElementById("favBtn");
 let favInject = document.getElementById("favInject");
 
-favBtn.addEventListener('click', function (e) {
+// favBtn.addEventListener('click', function (e) {
 
-})
+// })
 
-searchBtn.addEventListener('click', function (e) {
+searchBtn.addEventListener('click', function (e){
     Search(userInput.value);
 })
 

@@ -17,3 +17,16 @@ body {
 .txtCenter {
     text-align: center;
 }
+
+.mainIconSize {
+    height: 125px;
+}
+
+.bottom {
+    display: flex;
+    align-items: end;
+}
+
+.offcanvas-backdrop.show {
+    opacity: 0;
+}
