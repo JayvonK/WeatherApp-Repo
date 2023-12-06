@@ -14,6 +14,12 @@ let day5Icon = document.getElementById("day5Icon");
 let currTemp = document.getElementById("currTemp");
 let currCity = document.getElementById("currCity");
 let currWeather = document.getElementById("currWeather");
+let firstHrTemp = document.getElementById("firstHrTemp");
+let secondHrTemp = document.getElementById("secondHrTemp");
+let thirdHrTemp = document.getElementById("thirdHrTemp");
+let firstHrIcon = document.getElementById("firstHrIcon");
+let secondHrIcon = document.getElementById("secondHrIcon");
+let thirdHrIcon = document.getElementById("thirdHrIcon");
 let highTemp1 = document.getElementById("highTemp1");
 let highTemp2 = document.getElementById("highTemp2");
 let highTemp3 = document.getElementById("highTemp3");
@@ -96,7 +102,28 @@ async function FiveDayApiCall(a, b, c) {
     + ", 5th day max temp: " 
     + Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max)));
 
+
+
+
+
+
+    //Current Day 3 segment Temp
     console.log("9am temp: " + Math.floor((data.list[0].main.temp)) + ", Noon temp: " + Math.floor((data.list[2].main.temp)) + ", 9pm temp: " + Math.floor((data.list[4].main.temp)));
+
+    firstHrTemp.innerText = Math.floor((data.list[0].main.temp)) + "°F";
+    firstHrIcon.src = ChangeIcon(data.list[0].weather[0].icon);
+
+    secondHrTemp.innerText = Math.floor((data.list[2].main.temp)) + "°F";
+    secondHrIcon.src = ChangeIcon(data.list[2].weather[0].icon);
+
+    thirdHrTemp.innerText = Math.floor((data.list[4].main.temp)) + "°F";
+    thirdHrIcon.src = ChangeIcon(data.list[4].weather[0].icon);
+
+
+
+
+
+
 
     //Displaying Max temps for 5 day forecast
     highTemp1.innerText = Math.floor(HighTemp(data.list[0].main.temp_max, data.list[1].main.temp_max, data.list[2].main.temp_max, data.list[3].main.temp_max, data.list[4].main.temp_max, data.list[5].main.temp_max, data.list[6].main.temp_max, data.list[7].main.temp_max)) + "°F";
@@ -136,10 +163,9 @@ async function FiveDayApiCall(a, b, c) {
 
     //Day 1 Icon and Temperature
 
-    for(let i = 0; i < 7; i++){
+    for(let i = 0; i < 8; i++){
 
         let tempMax = Math.floor(HighTemp(data.list[0].main.temp_max, data.list[1].main.temp_max, data.list[2].main.temp_max, data.list[3].main.temp_max, data.list[4].main.temp_max, data.list[5].main.temp_max, data.list[6].main.temp_max, data.list[7].main.temp_max));
-
 
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if(maxTemp === tempMax){
@@ -150,7 +176,7 @@ async function FiveDayApiCall(a, b, c) {
 
     //Day 2 Icon and Temperature
 
-    for(let i = 8; i < 15; i++){
+    for(let i = 8; i < 16; i++){
 
         let tempMax = Math.floor(HighTemp(data.list[8].main.temp_max, data.list[9].main.temp_max, data.list[10].main.temp_max, data.list[11].main.temp_max, data.list[12].main.temp_max, data.list[13].main.temp_max, data.list[14].main.temp_max, data.list[15].main.temp_max));
 
@@ -162,7 +188,7 @@ async function FiveDayApiCall(a, b, c) {
 
     //Day 3 Icon and Temp
 
-    for(let i = 16; i < 23; i++){
+    for(let i = 16; i < 24; i++){
 
         let tempMax = Math.floor(HighTemp(data.list[16].main.temp_max, data.list[17].main.temp_max, data.list[18].main.temp_max, data.list[19].main.temp_max, data.list[20].main.temp_max, data.list[21].main.temp_max, data.list[22].main.temp_max, data.list[23].main.temp_max));
 
@@ -174,7 +200,7 @@ async function FiveDayApiCall(a, b, c) {
 
 
     //Day 4 Icon and Temp
-    for(let i = 24; i < 31; i++){
+    for(let i = 24; i < 32; i++){
 
         let tempMax = Math.floor(HighTemp(data.list[24].main.temp_max, data.list[25].main.temp_max, data.list[26].main.temp_max, data.list[27].main.temp_max, data.list[28].main.temp_max, data.list[29].main.temp_max, data.list[30].main.temp_max, data.list[31].main.temp_max));
 
@@ -186,7 +212,7 @@ async function FiveDayApiCall(a, b, c) {
 
 
     //Day 5 Icon and Temp
-    for(let i = 32; i < 39; i++){
+    for(let i = 32; i < 40; i++){
 
         let tempMax = Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max));
 
