@@ -5,9 +5,9 @@ import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay } from "./weekDayFunctions.js";
 
-function Search(city){
+function Search(city) {
 
-    
+
     SearchCurrent(city, apiKey);
     Search5Day(city, apiKey);
 
@@ -15,47 +15,28 @@ function Search(city){
 }
 
 
-async function SearchCurrent(cityName, k){
+async function SearchCurrent(cityName, k) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${k}&units=imperial`)
     const data = await promise.json();
 
-    if(data){currTemp.innerText = Math.floor(data.main.temp);
-        mainIcon.src = ChangeIcon(data.weather[0].icon);
-        currCity.textContent = data.name;
-        currWeather.innerText = data.weather[0].main;
-        currTime.innerText = CurrentTime(data.dt);
-        let dayValue = new Date(CurrentTime(data.dt)).getDay();
-        currDay.innerText = FindDay(dayValue);
-        console.log(data.dt);
-    
-        let weekDayArray = WeekDays(FindDay(dayValue));
-        weekDay1.innerText = weekDayArray[0];
-        weekDay2.innerText = weekDayArray[1];
-        weekDay3.innerText = weekDayArray[2];
-        weekDay4.innerText = weekDayArray[3];
-        weekDay5.innerText = weekDayArray[4];
-    }else{
-        console.log("ERROR ERROR ERROR")
-    }
+    currTemp.innerText = Math.floor(data.main.temp);
+    mainIcon.src = ChangeIcon(data.weather[0].icon);
+    currCity.textContent = data.name;
+    currWeather.innerText = data.weather[0].main;
+    currTime.innerText = CurrentTime(data.dt);
+    let dayValue = new Date(CurrentTime(data.dt)).getDay();
+    currDay.innerText = FindDay(dayValue);
+    console.log(data.dt);
 
-    // currTemp.innerText = Math.floor(data.main.temp);
-    // mainIcon.src = ChangeIcon(data.weather[0].icon);
-    // currCity.textContent = data.name;
-    // currWeather.innerText = data.weather[0].main;
-    // currTime.innerText = CurrentTime(data.dt);
-    // let dayValue = new Date(CurrentTime(data.dt)).getDay();
-    // currDay.innerText = FindDay(dayValue);
-    // console.log(data.dt);
-
-    // let weekDayArray = WeekDays(FindDay(dayValue));
-    // weekDay1.innerText = weekDayArray[0];
-    // weekDay2.innerText = weekDayArray[1];
-    // weekDay3.innerText = weekDayArray[2];
-    // weekDay4.innerText = weekDayArray[3];
-    // weekDay5.innerText = weekDayArray[4];
+    let weekDayArray = WeekDays(FindDay(dayValue));
+    weekDay1.innerText = weekDayArray[0];
+    weekDay2.innerText = weekDayArray[1];
+    weekDay3.innerText = weekDayArray[2];
+    weekDay4.innerText = weekDayArray[3];
+    weekDay5.innerText = weekDayArray[4];
 }
 
-async function Search5Day(cityName, k){
+async function Search5Day(cityName, k) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${k}&units=imperial`)
     const data = await promise.json();
 
@@ -144,6 +125,17 @@ async function Search5Day(cityName, k){
             console.log(data.list[i].weather[0].description);
         }
     }
+
+
+    //3 Day Section
+    firstHrTemp.innerText = Math.floor((data.list[0].main.temp)) + "°F";
+    firstHrIcon.src = ChangeIcon(data.list[0].weather[0].icon);
+
+    secondHrTemp.innerText = Math.floor((data.list[2].main.temp)) + "°F";
+    secondHrIcon.src = ChangeIcon(data.list[2].weather[0].icon);
+
+    thirdHrTemp.innerText = Math.floor((data.list[4].main.temp)) + "°F";
+    thirdHrIcon.src = ChangeIcon(data.list[4].weather[0].icon);
 }
 
 export { Search, Search5Day, SearchCurrent }

@@ -10,8 +10,30 @@
   <link rel="stylesheet" href="./style/styles.css">
 </head>
 
-<body>
+<body id="body">
   <div class="container-fluid">
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Oops</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <div class="row white py-2">
       <div class="col">
 
@@ -23,7 +45,7 @@
           </div>
           <div class="col d-flex justify-content-end" style="border: none;">
             <input id="userInput" class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
-            <button id="searchBtn" class="btn btn-outline-success" type="submit">Search</button>
+            <button id="searchBtn" class="btn btn-outline-success" type="submit"><img src="./assets/search.svg" alt="" style="height: 25px;"></button>
           </div>
         </div>
       </div>
@@ -33,44 +55,45 @@
     </div>
 
     <div class="row">
-      <div id="favInject" class="col">
+      <div class="col">
       </div>
       <div class="col-6">
         <div class="row mt-5">
           <div class="col">
-            <div class="card" style="width: 100%; height: 100%;">
+            <div class="card borderR" style="width: 100%; height: 100%;">
               <div class="card-body mainCardPadd">
-                <h5 id="currCity" class="card-title locationSize">Stockton</h5>
+                <h5 class="roboto"  class="card-title locationSize"><span id="currCity">Stockton</span> <img src="/assets/heart.svg" alt=""></h5>
 
-                <h6 class="card-subtitle mb-2 text-body-secondary" style="font-size: 100px;"><img class="mainIconSize" id="mainIcon"
+                <h6 class="card-subtitle mb-2 text-body-secondary philosopher" style="font-size: 125px;"><img class="mainIconSize" id="mainIcon"
                     src="./assets/" alt="..."><span id="currTemp">54F</span></h6>
+                  <p class="dots">...........................................</p>
                 <p id="currWeather" class="card-text">Clear</p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%; height: 100%;">
-              <div class="card-body">
+            <div class="card borderR" style="width: 100%; height: 100%;">
+              <div class="card-body mainCardPadd">
                 <div class="row">
-                  <div class="col"><h5 id="currDay" class="card-title locationSize">Today</h5></div>
-                  <div class="col"><h5 id="currTime" class="card-title locationSize">0:00</h5></div>
+                  <div class="col"><h5 class="roboto" id="currDay" class="card-title locationSize">Today</h5></div>
+                  <div class="col"><h5 class="roboto" id="currTime" class="card-title locationSize">0:00</h5></div>
                 </div>
                 
                 <div class="row">
                   <div class="col">
                     <h2>8 am</h2>
                     <img id="firstHrIcon" src="..." alt="...">
-                    <h1 id="firstHrTemp">32F</h1>
+                    <h1 class="philosopher" id="firstHrTemp">32F</h1>
                   </div>
                   <div class="col">
                     <h2>8 am</h2>
                     <img id="secondHrIcon" src="..." alt="...">
-                    <h1 id="secondHrTemp">32F</h1>
+                    <h1 class="philosopher" id="secondHrTemp">32F</h1>
                   </div>
                   <div class="col">
                     <h2>8 am</h2>
                     <img id="thirdHrIcon" src="..." alt="...">
-                    <h1 id="thirdHrTemp">32F</h1>
+                    <h1 class="philosopher" id="thirdHrTemp">32F</h1>
                   </div>
                 </div>
               </div>
@@ -79,46 +102,46 @@
         </div>
         <div class="row mt-3">
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay1" class="card-title">Tue 12/8</h5>
-                <img id="day1Icon" src="" alt="...">
+                <img class="forecastIcon" id="day1Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp1">74F</span> | <span id="lowTemp1">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
-              <div class="card-body txtCenter">
+            <div class="card borderR forecastOpacity" style="width: 100%;">
+              <div class="card-body txtCenter ">
                 <h5 id="weekDay2" class="card-title">Tue 12/8</h5>
-                <img id="day2Icon" src="" alt="...">
+                <img class="forecastIcon" id="day2Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp2">74F</span> | <span id="lowTemp2">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
-              <div class="card-body txtCenter">
+            <div class="card borderR forecastOpacity" style="width: 100%;">
+              <div class="card-body txtCenter ">
                 <h5 id="weekDay3" class="card-title">Tue 12/8</h5>
-                <img id="day3Icon" src="" alt="...">
+                <img class="forecastIcon" id="day3Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp3">74F</span> | <span id="lowTemp3">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
-              <div class="card-body txtCenter">
+            <div class="card borderR forecastOpacity" style="width: 100%;">
+              <div class="card-body txtCenter ">
                 <h5 id="weekDay4" class="card-title">Tue 12/8</h5>
-                <img id="day4Icon" src="" alt="...">
+                <img class="forecastIcon" id="day4Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp4">74F</span> | <span id="lowTemp4">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay5" class="card-title">Tue 12/8</h5>
-                <img id="day5Icon" src="" alt="...">
+                <img class="forecastIcon" id="day5Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp5">74F</span> | <span id="lowTemp5">34F</span></p>
               </div>
             </div>
@@ -134,7 +157,7 @@
               
               <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.75%;">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Your Favorite Cities</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -142,8 +165,7 @@
                     Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
                   </div>
                   <div class="dropdown mt-3">
-                    <button></button>
-                    </button>
+                    
                     
                     </ul>
                   </div>
@@ -167,6 +189,7 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script type="module" src="./scripts/app.js"></script>
+  <div id="modalBg" class=""></div>
 </body>
 
 </html>

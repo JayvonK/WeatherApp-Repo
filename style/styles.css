@@ -1,5 +1,5 @@
 body {
-    background-color: cornflowerblue;
+    background-image: url(../assets/gradient-background-backdrop-multicolor-colorful-vibrant-3840x2160-6723.png);
 }
 
 .white {
@@ -11,7 +11,7 @@ body {
 }
 
 .mainCardPadd {
-    padding: 3% 2% 6% 6%;
+    padding: 3% 2% 6% 8%;
 }
 
 .txtCenter {
@@ -29,4 +29,40 @@ body {
 
 .offcanvas-backdrop.show {
     opacity: 0;
+}
+
+.forecastOpacity{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.forecastIcon {
+    height: 50px;
+}
+
+@font-face {
+    font-family: Philosopher;
+    src: url(../assets/Philosopher-Regular.ttf);
+}
+
+.philosopher {
+    font-family: Philosopher;
+}
+
+.borderR{
+    border-radius: 20px;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../assets/Roboto-Regular.ttf);
+}
+
+.roboto {
+    font-family: Roboto;
+    letter-spacing: 7px;
+    font-size: 30px;
+}
+
+.dots{
+    letter-spacing: 5.5px;
 }

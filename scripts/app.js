@@ -40,6 +40,9 @@ let weekDay2 = document.getElementById("weekDay2");
 let weekDay3 = document.getElementById("weekDay3");
 let weekDay4 = document.getElementById("weekDay4");
 let weekDay5 = document.getElementById("weekDay5");
+let exampleModal = document.getElementById("exampleModal");
+let modalBg = document.getElementById("modalBg");
+let body = document.getElementById("body");
 
 
 
@@ -73,13 +76,12 @@ async function CurrentApiCall(a, b, c) {
     console.log(data);
     console.log(data.dt)
 
-    currTemp.innerText = Math.floor(data.main.temp);
+    currTemp.innerText = Math.floor(data.main.temp) + "°F";
     mainIcon.src = ChangeIcon(data.weather[0].icon);
-    currCity.textContent = data.name;
+    currCity.textContent = data.name.toUpperCase();
     currWeather.innerText = data.weather[0].main;
     currTime.innerText = TimeOnly(CurrentTime(data.dt));
     let dayValue = new Date(CurrentTime(data.dt)).getDay();
-    currDay.innerText = FindDay(dayValue);
 
     let weekDayArray = WeekDays(FindDay(dayValue));
     weekDay1.innerText = weekDayArray[0];
@@ -243,26 +245,80 @@ async function FiveDayApiCall(a, b, c) {
 
 }
 
+let cityList;
 
 //API Call for current time
-async function CurrentTimeApiCall(area) {
-    const promise = await fetch(
-        `http://worldtimeapi.org/api/timezone/${area}`)
+async function CityList() {
+    const promise = await fetch(`../assets/city.list.json`);
     const data = await promise.json();
 
-    console.log(data);
+    cityList = data;
 }
 
-let favBtn = document.getElementById("favBtn");
-let favInject = document.getElementById("favInject");
+function FindCity(){
+    let input = userInput.value.toLowerCase();
+    let search = false;
+    
+    for(let i = 0; i < cityList.length; i++){
+        let city = cityList[i].name.toLowerCase();
 
-// favBtn.addEventListener('click', function (e) {
+        if(input === city){
+            search = true;
+        }
+    }
+    if(search === true){
+        Search(input);
+    }else{
+        body.className = "modal-open";
+        body.style = "overflow: hidden; padding-right: 0px;";
+        exampleModal.className = "modal fade show";
+        exampleModal.style = "display: block;";
+        exampleModal.ariaModal = "true";
+        exampleModal.removeAttribute('aria-hidden');
+        exampleModal.role = "dialog";
+        modalBg.className = "modal-backdrop fade show";
+    }
 
-// })
+}
 
-searchBtn.addEventListener('click', function (e){
-    Search(userInput.value);
+exampleModal.addEventListener('click', function(e){
+    body.className = "";
+    body.style = "";
+    exampleModal.className = "modal fade";
+    exampleModal.style = "";
+    exampleModal.ariaModal = "";
+    exampleModal.role = "";
+    modalBg.className = "";
 })
 
-export { weekDay1, weekDay2, weekDay3, weekDay4, weekDay5, highTemp1, highTemp2, highTemp3, highTemp4, highTemp5 }
+CityList();
 
+
+searchBtn.addEventListener('click', function (e){
+    FindCity();
+})
+
+
+function convertUnixTimeToTimeZone(unixTime, timeZone) {
+    const date = new Date(unixTime * 1000); // Convert Unix time to milliseconds
+  
+    // Get the local time zone offset in minutes
+    const localOffset = date.getTimezoneOffset();
+  
+    // Create a new Date object adjusted for the target time zone
+    const targetDate = new Date(date.getTime() + localOffset * 60 * 1000);
+    const targetOffset = timeZone * 60 * 60 * 1000; // Convert time zone to milliseconds
+  
+    // Apply the time zone offset
+    const convertedTime = new Date(targetDate.getTime() + targetOffset);
+    console.log(convertedTime);
+  
+    return convertedTime.toLocaleString(); // Return the converted time in a readable format
+  }
+  
+  // Example usage:
+  const unixTimestamp = 1701894551; // Replace this with your Unix timestamp
+  const targetTimeZone = -8; // Replace this with the target time zone offset in hours (e.g., -5 for EST)
+  
+  const convertedTime = convertUnixTimeToTimeZone(unixTimestamp, targetTimeZone);
+  console.log(`Converted Time: ${convertedTime}`);
