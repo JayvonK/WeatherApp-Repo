@@ -1,10 +1,12 @@
 import { apiKey } from "./enivronment.js";
 import { LowestTemp, HighTemp } from "./highAndLow.js";
-import { Search } from "./searchFunctions.js";
+import { Search, CityName } from "./searchFunctions.js";
 import { CurrentTime } from "./currentTime.js";
 import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay } from "./weekDayFunctions.js";
+import { AddFavCity } from "./addFavCity.js";
+import { updateFav } from "./updateFav.js";
 
 let mainIcon = document.getElementById("mainIcon");
 let day1Icon = document.getElementById("day1Icon");
@@ -45,9 +47,19 @@ let modalBg = document.getElementById("modalBg");
 let body = document.getElementById("body");
 let heartBtn = document.getElementById("heartBtn");
 let favInject = document.getElementById("favInject");
+let favSearch = document.getElementsByClassName("btn btn-light");
 let currCityName;
 let favArray = [];
 let heart = heartBtn.src;
+let searched = false;
+
+if (localStorage.getItem("favorites")) {
+    favArray = JSON.parse(localStorage.getItem("favorites"));
+}
+
+updateFav();
+
+console.log(favArray);
 
 
 navigator.geolocation.getCurrentPosition(success, error);
@@ -70,14 +82,14 @@ async function CurrentApiCall(a, b, c) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${a}&lon=${b}&appid=${c}&units=imperial`)
     const data = await promise.json();
 
-    console.log("Current Temp: " + Math.floor(data.main.temp));
-    console.log("Current max temp: " + Math.floor(data.main.temp_max) + ", Current min temp: " + Math.floor(data.main.temp_min));
-    console.log("Current Weather: " + data.weather[0].main)
-    console.log("City: " + data.name)
+    // console.log("Current Temp: " + Math.floor(data.main.temp));
+    // console.log("Current max temp: " + Math.floor(data.main.temp_max) + ", Current min temp: " + Math.floor(data.main.temp_min));
+    // console.log("Current Weather: " + data.weather[0].main)
+    // console.log("City: " + data.name)
 
 
     console.log(data);
-    console.log(data.dt)
+    // console.log(data.dt)
 
     currTemp.innerText = Math.floor(data.main.temp) + "°F";
     mainIcon.src = ChangeIcon(data.weather[0].icon);
@@ -93,6 +105,12 @@ async function CurrentApiCall(a, b, c) {
     weekDay3.innerText = weekDayArray[2];
     weekDay4.innerText = weekDayArray[3];
     weekDay5.innerText = weekDayArray[4];
+
+    for (let i = 0; i < favArray.length; i++) {
+        if (currCityName === favArray[i]) {
+            heartBtn.src = "./assets/heart (1).svg";
+        }
+    }
 }
 
 
@@ -101,29 +119,29 @@ async function FiveDayApiCall(a, b, c) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${a}&lon=${b}&appid=${c}&units=imperial`)
     const data = await promise.json();
 
-    //Console logging first day
-    console.log("1st day min temp: " + LowestTemp(data.list[0].main.temp_min, data.list[1].main.temp_min, data.list[2].main.temp_min, data.list[3].main.temp_min, data.list[4].main.temp_min, data.list[5].main.temp_min, data.list[6].main.temp_min, data.list[7].main.temp_min) + ", 1st day max temp: " + HighTemp(data.list[0].main.temp_max, data.list[1].main.temp_max, data.list[2].main.temp_max, data.list[3].main.temp_max, data.list[4].main.temp_max, data.list[5].main.temp_max, data.list[6].main.temp_max, data.list[7].main.temp_max) + ", Weather Description: ");
+    // Console logging first day
+    // console.log("1st day min temp: " + LowestTemp(data.list[0].main.temp_min, data.list[1].main.temp_min, data.list[2].main.temp_min, data.list[3].main.temp_min, data.list[4].main.temp_min, data.list[5].main.temp_min, data.list[6].main.temp_min, data.list[7].main.temp_min) + ", 1st day max temp: " + HighTemp(data.list[0].main.temp_max, data.list[1].main.temp_max, data.list[2].main.temp_max, data.list[3].main.temp_max, data.list[4].main.temp_max, data.list[5].main.temp_max, data.list[6].main.temp_max, data.list[7].main.temp_max) + ", Weather Description: ");
 
     //Console logging second day
-    console.log("2nd day min temp: " + LowestTemp(data.list[8].main.temp_min, data.list[9].main.temp_min, data.list[10].main.temp_min, data.list[11].main.temp_min, data.list[12].main.temp_min, data.list[13].main.temp_min, data.list[14].main.temp_min, data.list[15].main.temp_min) + ", 2nd day max temp: " + HighTemp(data.list[8].main.temp_max, data.list[9].main.temp_max, data.list[10].main.temp_max, data.list[11].main.temp_max, data.list[12].main.temp_max, data.list[13].main.temp_max, data.list[14].main.temp_max, data.list[15].main.temp_max));
+    // console.log("2nd day min temp: " + LowestTemp(data.list[8].main.temp_min, data.list[9].main.temp_min, data.list[10].main.temp_min, data.list[11].main.temp_min, data.list[12].main.temp_min, data.list[13].main.temp_min, data.list[14].main.temp_min, data.list[15].main.temp_min) + ", 2nd day max temp: " + HighTemp(data.list[8].main.temp_max, data.list[9].main.temp_max, data.list[10].main.temp_max, data.list[11].main.temp_max, data.list[12].main.temp_max, data.list[13].main.temp_max, data.list[14].main.temp_max, data.list[15].main.temp_max));
 
     //Console logging third day
-    console.log("3rd day min temp: " + LowestTemp(data.list[16].main.temp_min, data.list[17].main.temp_min, data.list[18].main.temp_min, data.list[19].main.temp_min, data.list[20].main.temp_min, data.list[21].main.temp_min, data.list[22].main.temp_min, data.list[23].main.temp_min) + ", 3rd day max temp: " + HighTemp(data.list[16].main.temp_max, data.list[17].main.temp_max, data.list[18].main.temp_max, data.list[19].main.temp_max, data.list[20].main.temp_max, data.list[21].main.temp_max, data.list[22].main.temp_max, data.list[23].main.temp_max));
+    // console.log("3rd day min temp: " + LowestTemp(data.list[16].main.temp_min, data.list[17].main.temp_min, data.list[18].main.temp_min, data.list[19].main.temp_min, data.list[20].main.temp_min, data.list[21].main.temp_min, data.list[22].main.temp_min, data.list[23].main.temp_min) + ", 3rd day max temp: " + HighTemp(data.list[16].main.temp_max, data.list[17].main.temp_max, data.list[18].main.temp_max, data.list[19].main.temp_max, data.list[20].main.temp_max, data.list[21].main.temp_max, data.list[22].main.temp_max, data.list[23].main.temp_max));
 
     //Console logging fourth day 
-    console.log("4th day min temp: " + LowestTemp(data.list[24].main.temp_min, data.list[25].main.temp_min, data.list[26].main.temp_min, data.list[27].main.temp_min, data.list[28].main.temp_min, data.list[29].main.temp_min, data.list[30].main.temp_min, data.list[31].main.temp_min)
-        + ", 4th day max temp: "
-        + Math.floor(HighTemp(data.list[24].main.temp_max, data.list[25].main.temp_max, data.list[26].main.temp_max, data.list[27].main.temp_max, data.list[28].main.temp_max, data.list[29].main.temp_max, data.list[30].main.temp_max, data.list[31].main.temp_max)));
+    // console.log("4th day min temp: " + LowestTemp(data.list[24].main.temp_min, data.list[25].main.temp_min, data.list[26].main.temp_min, data.list[27].main.temp_min, data.list[28].main.temp_min, data.list[29].main.temp_min, data.list[30].main.temp_min, data.list[31].main.temp_min)
+    //     + ", 4th day max temp: "
+    //     + Math.floor(HighTemp(data.list[24].main.temp_max, data.list[25].main.temp_max, data.list[26].main.temp_max, data.list[27].main.temp_max, data.list[28].main.temp_max, data.list[29].main.temp_max, data.list[30].main.temp_max, data.list[31].main.temp_max)));
 
     //Console logging fifth day
-    console.log("5th day min temp: " +
-        Math.floor(LowestTemp(data.list[32].main.temp_min, data.list[33].main.temp_min, data.list[34].main.temp_min, data.list[35].main.temp_min, data.list[36].main.temp_min, data.list[37].main.temp_min, data.list[38].main.temp_min, data.list[39].main.temp_min))
-        + ", 5th day max temp: "
-        + Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max)));
+    // console.log("5th day min temp: " +
+    //     Math.floor(LowestTemp(data.list[32].main.temp_min, data.list[33].main.temp_min, data.list[34].main.temp_min, data.list[35].main.temp_min, data.list[36].main.temp_min, data.list[37].main.temp_min, data.list[38].main.temp_min, data.list[39].main.temp_min))
+    //     + ", 5th day max temp: "
+    //     + Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max)));
 
 
     //Current Day 3 segment Temp
-    console.log("9am temp: " + Math.floor((data.list[0].main.temp)) + ", Noon temp: " + Math.floor((data.list[2].main.temp)) + ", 9pm temp: " + Math.floor((data.list[4].main.temp)));
+    // console.log("9am temp: " + Math.floor((data.list[0].main.temp)) + ", Noon temp: " + Math.floor((data.list[2].main.temp)) + ", 9pm temp: " + Math.floor((data.list[4].main.temp)));
 
     firstHrTemp.innerText = Math.floor((data.list[0].main.temp)) + "°F";
     firstHrIcon.src = ChangeIcon(data.list[0].weather[0].icon);
@@ -175,7 +193,6 @@ async function FiveDayApiCall(a, b, c) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day1Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -189,7 +206,6 @@ async function FiveDayApiCall(a, b, c) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day2Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -202,7 +218,6 @@ async function FiveDayApiCall(a, b, c) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day3Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -215,7 +230,6 @@ async function FiveDayApiCall(a, b, c) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day4Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -228,7 +242,6 @@ async function FiveDayApiCall(a, b, c) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day5Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 }
@@ -256,6 +269,7 @@ function FindCity() {
     }
     if (search === true) {
         Search(input);
+        searched = true;
     } else {
         body.className = "modal-open";
         body.style = "overflow: hidden; padding-right: 0px;";
@@ -288,39 +302,40 @@ searchBtn.addEventListener('click', function (e) {
 })
 
 
+heartBtn.addEventListener('click', function (e) {
+    if (heartBtn.src === heart) {
+        if (searched === false) {
+            heartBtn.src = "./assets/heart (1).svg";
+            favArray.push(currCityName);
 
+            localStorage.setItem("favorites", JSON.stringify(favArray));
+            favInject.innerHTML = "";
+            updateFav();
+        } else {
+            heartBtn.src = "./assets/heart (1).svg";
+            favArray.push(CityName);
+            
+            localStorage.setItem("favorites", JSON.stringify(favArray));
+            favInject.innerHTML = "";
+            updateFav();
+        }
 
-
-
-heartBtn.addEventListener('click', function(e){
-    if(heartBtn.src === heart){
-        heartBtn.src = "./assets/heart (1).svg";
-        AddFavCity(favInject, currCityName);
-        favArray.push(currCityName);
-
-        localStorage.setItem("favorites", JSON.stringify(favArray));
-    }else{
+    } else {
         heartBtn.src = "./assets/heart.svg";
 
         let index = favArray.indexOf(currCityName);
 
         favArray.splice(index, 1);
+
         localStorage.setItem("favorites", JSON.stringify(favArray));
+        favInject.innerHTML = "";
+        updateFav();
     }
 })
 
-function AddFavCity(inject, city){
-    let btn = document.createElement("button");
-    btn.className = "btn btn-light";
-    btn.style = "width: 100%; height: 50px";
-    btn.innerText = city;
-
-    inject.appendChild(btn);
-}
-
-
-
-
+// favSearch.addEventListener('click', function(e){
+//     Search(favSearch.innerText);
+// })
 
 
 
@@ -363,3 +378,5 @@ const targetTimeZone = -8; // Replace this with the target time zone offset in h
 
 const convertedTime = convertUnixTimeToTimeZone(unixTimestamp, targetTimeZone);
 console.log(`Converted Time: ${convertedTime}`);
+
+export { favArray }

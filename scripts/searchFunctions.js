@@ -4,6 +4,10 @@ import { CurrentTime } from "./currentTime.js";
 import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay } from "./weekDayFunctions.js";
+import { favArray } from "./app.js";
+import { AddFavCity } from "./addFavCity.js";
+
+let CityName;
 
 function Search(city) {
 
@@ -22,9 +26,9 @@ async function SearchCurrent(cityName, k) {
     currTemp.innerText = Math.floor(data.main.temp);
     mainIcon.src = ChangeIcon(data.weather[0].icon);
     currCity.textContent = data.name;
-    currCityName = data.name;
+    CityName = data.name;
     currWeather.innerText = data.weather[0].main;
-    currTime.innerText = CurrentTime(data.dt);
+    currTime.innerText = TimeOnly(CurrentTime(data.dt));
     let dayValue = new Date(CurrentTime(data.dt)).getDay();
     currDay.innerText = FindDay(dayValue);
     console.log(data.dt);
@@ -35,6 +39,17 @@ async function SearchCurrent(cityName, k) {
     weekDay3.innerText = weekDayArray[2];
     weekDay4.innerText = weekDayArray[3];
     weekDay5.innerText = weekDayArray[4];
+
+    console.log(CityName)
+
+    heartBtn.src = "./assets/heart.svg";
+
+    for(let i = 0; i < favArray.length; i++){
+        if(CityName === favArray[i]){
+            console.log(favArray[i])
+            heartBtn.src = "./assets/heart (1).svg";
+        }
+    }
 }
 
 async function Search5Day(cityName, k) {
@@ -70,7 +85,6 @@ async function Search5Day(cityName, k) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day1Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -84,7 +98,6 @@ async function Search5Day(cityName, k) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day2Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -97,7 +110,6 @@ async function Search5Day(cityName, k) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day3Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -110,7 +122,6 @@ async function Search5Day(cityName, k) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day4Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -123,7 +134,6 @@ async function Search5Day(cityName, k) {
         let maxTemp = Math.floor(data.list[i].main.temp_max);
         if (maxTemp === tempMax) {
             day5Icon.src = ChangeIcon(data.list[i].weather[0].icon);
-            console.log(data.list[i].weather[0].description);
         }
     }
 
@@ -139,4 +149,5 @@ async function Search5Day(cityName, k) {
     thirdHrIcon.src = ChangeIcon(data.list[4].weather[0].icon);
 }
 
-export { Search, Search5Day, SearchCurrent }
+export { Search, Search5Day, SearchCurrent, CityName}
+
