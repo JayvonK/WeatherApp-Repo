@@ -44,6 +44,8 @@ let exampleModal = document.getElementById("exampleModal");
 let modalBg = document.getElementById("modalBg");
 let body = document.getElementById("body");
 let heartBtn = document.getElementById("heartBtn");
+let favInject = document.getElementById("favInject");
+let currCityName;
 
 
 
@@ -79,6 +81,7 @@ async function CurrentApiCall(a, b, c) {
     currTemp.innerText = Math.floor(data.main.temp) + "°F";
     mainIcon.src = ChangeIcon(data.weather[0].icon);
     currCity.textContent = data.name.toUpperCase();
+    currCityName = data.name;
     currWeather.innerText = data.weather[0].main;
     currTime.innerText = TimeOnly(CurrentTime(data.dt));
     let dayValue = new Date(CurrentTime(data.dt)).getDay();
@@ -288,12 +291,20 @@ let heart = heartBtn.src;
 heartBtn.addEventListener('click', function(e){
     if(heartBtn.src === heart){
         heartBtn.src = "./assets/heart (1).svg";
+        AddFavCity(favInject, currCityName);
     }else{
         heartBtn.src = "./assets/heart.svg";
     }
 })
 
+function AddFavCity(inject, city){
+    let btn = document.createElement("button");
+    btn.className = "btn btn-light";
+    btn.style = "width: 100%; height: 50px";
+    btn.innerText = city;
 
+    inject.appendChild(btn);
+}
 
 
 
