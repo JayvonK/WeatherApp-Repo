@@ -1,4 +1,4 @@
-import { Search } from "./searchFunctions";
+import { Search } from "./searchFunctions.js";
 
 function AddFavCity(inject, city){
     let btn = document.createElement("button");

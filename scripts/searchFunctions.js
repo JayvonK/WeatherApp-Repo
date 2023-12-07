@@ -23,7 +23,7 @@ async function SearchCurrent(cityName, k) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${k}&units=imperial`)
     const data = await promise.json();
 
-    currTemp.innerText = Math.floor(data.main.temp);
+    currTemp.innerText = Math.floor(data.main.temp) + "°F";
     mainIcon.src = ChangeIcon(data.weather[0].icon);
     currCity.textContent = data.name;
     CityName = data.name;

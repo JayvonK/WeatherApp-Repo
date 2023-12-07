@@ -58,6 +58,15 @@ WHAT I PLAN ON DOING 12/6:
 2. Make functions to display current time for any location
 3. Finish making favorite section
 
+WHAT I WAS ABLE TO DO, 12/7:
+1. Almost finished with favorite section functionality
+2. Almost finished search bar functionality
+3. Able to do some front end changes
+
+WHAT I PLAN ON DOING 12/7:
+1. Finish up search bar and favorite section
+2. Finish all the front end
+3. Create function to display correct time
 
 
 

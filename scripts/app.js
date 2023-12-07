@@ -5,7 +5,6 @@ import { CurrentTime } from "./currentTime.js";
 import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay } from "./weekDayFunctions.js";
-import { AddFavCity } from "./addFavCity.js";
 import { updateFav } from "./updateFav.js";
 
 let mainIcon = document.getElementById("mainIcon");
@@ -333,9 +332,6 @@ heartBtn.addEventListener('click', function (e) {
     }
 })
 
-// favSearch.addEventListener('click', function(e){
-//     Search(favSearch.innerText);
-// })
 
 
 

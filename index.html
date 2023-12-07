@@ -12,23 +12,23 @@
 
 <body id="body">
   <div class="container-fluid">
-<!-- Button trigger modal -->
+    <!-- Button trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      
-      <div class="modal-body" style="height: 60vh">
-        <h2>whoops.</h2>
-        <p>The city you tried searching for cannot be found.
-          <br>Please try another location
-        </p>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Try another search ></button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-body" style="height: 60vh">
+            <h2>whoops.</h2>
+            <p>The city you tried searching for cannot be found.
+              <br>Please try another location
+            </p>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Try another search ></button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 
     <div class="row white py-2">
@@ -42,7 +42,8 @@
           </div>
           <div class="col d-flex justify-content-end" style="border: none;">
             <input id="userInput" class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
-            <button id="searchBtn" class="btn btn-outline-success" type="submit"><img src="./assets/search.svg" alt="" style="height: 25px;"></button>
+            <button id="searchBtn" class="btn btn-outline-success" type="submit"><img src="./assets/search.svg" alt=""
+                style="height: 25px;"></button>
           </div>
         </div>
       </div>
@@ -59,12 +60,34 @@
           <div class="col">
             <div class="card borderR" style="width: 100%; height: 100%;">
               <div class="card-body mainCardPadd">
-                <h5 class="roboto"  class="card-title locationSize"><span id="currCity">Stockton</span> <img id="heartBtn" src="./assets/heart.svg" alt=""></h5>
+                <div class="row">
+                  <div class="col">
+                    <h5 class="roboto" class="card-title locationSize"><span id="currCity">Stockton</span> </h5>
+                  </div>
+                  <div class="col d-flex justify-content-end">
+                    <img id="heartBtn" src="./assets/heart.svg" alt="">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <h6 class="card-subtitle mb-2 text-body-secondary philosopher" style="font-size: 125px;">
+                      <img class="mainIconSize" id="mainIcon" src="./assets/" alt="..."><span id="currTemp">54F</span>
+                    </h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p class="dots">...........................................</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <p id="currWeather">Clear</p>
+                </div>
 
-                <h6 class="card-subtitle mb-2 text-body-secondary philosopher" style="font-size: 125px;"><img class="mainIconSize" id="mainIcon"
-                    src="./assets/" alt="..."><span id="currTemp">54F</span></h6>
-                  <p class="dots">...........................................</p>
-                <p id="currWeather" class="card-text">Clear</p>
+
+
+
+
               </div>
             </div>
           </div>
@@ -72,10 +95,14 @@
             <div class="card borderR" style="width: 100%; height: 100%;">
               <div class="card-body mainCardPadd">
                 <div class="row">
-                  <div class="col"><h5 class="roboto" id="currDay" class="card-title locationSize">Today</h5></div>
-                  <div class="col"><h5 class="roboto" id="currTime" class="card-title locationSize">0:00</h5></div>
+                  <div class="col">
+                    <h5 class="roboto" id="currDay" class="card-title locationSize">Today</h5>
+                  </div>
+                  <div class="col">
+                    <h5 class="roboto" id="currTime" class="card-title locationSize">0:00</h5>
+                  </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col">
                     <h2>8 am</h2>
@@ -102,7 +129,7 @@
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay1" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon" id="day1Icon" src="" alt="...">
+                <img class="forecastIcon black" id="day1Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp1">74F</span> | <span id="lowTemp1">34F</span></p>
               </div>
             </div>
@@ -111,7 +138,7 @@
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay2" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon" id="day2Icon" src="" alt="...">
+                <img class="forecastIcon black" id="day2Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp2">74F</span> | <span id="lowTemp2">34F</span></p>
               </div>
             </div>
@@ -120,7 +147,7 @@
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay3" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon" id="day3Icon" src="" alt="...">
+                <img class="forecastIcon black" id="day3Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp3">74F</span> | <span id="lowTemp3">34F</span></p>
               </div>
             </div>
@@ -129,7 +156,7 @@
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay4" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon" id="day4Icon" src="" alt="...">
+                <img class="forecastIcon black" id="day4Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp4">74F</span> | <span id="lowTemp4">34F</span></p>
               </div>
             </div>
@@ -138,7 +165,7 @@
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay5" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon" id="day5Icon" src="" alt="...">
+                <img class="forecastIcon black" id="day5Icon" src="" alt="...">
                 <p class="card-text"><span id="highTemp5">74F</span> | <span id="lowTemp5">34F</span></p>
               </div>
             </div>
@@ -148,11 +175,13 @@
           <div class="col"></div>
           <div class="col-5">
             <div class="row mt-4">
-              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 Open Your Favorite Places
               </button>
-              
-              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.78%;">
+
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.78%;">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasExampleLabel">Your Favorite Cities</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -162,8 +191,8 @@
                     You have no Favorite Cities
                   </div>
                   <div class="dropdown mt-3">
-                    
-                    
+
+
                     </ul>
                   </div>
                 </div>
