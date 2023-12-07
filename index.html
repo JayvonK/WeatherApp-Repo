@@ -62,7 +62,7 @@
           <div class="col">
             <div class="card borderR" style="width: 100%; height: 100%;">
               <div class="card-body mainCardPadd">
-                <h5 class="roboto"  class="card-title locationSize"><span id="currCity">Stockton</span> <img src="/assets/heart.svg" alt=""></h5>
+                <h5 class="roboto"  class="card-title locationSize"><span id="currCity">Stockton</span> <img id="heartBtn" src="./assets/heart.svg" alt=""></h5>
 
                 <h6 class="card-subtitle mb-2 text-body-secondary philosopher" style="font-size: 125px;"><img class="mainIconSize" id="mainIcon"
                     src="./assets/" alt="..."><span id="currTemp">54F</span></h6>
@@ -155,14 +155,16 @@
                 Open Your Favorite Places
               </button>
               
-              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.75%;">
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.78%;">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasExampleLabel">Your Favorite Cities</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                  <div>
-                    Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                  <div id="favInject">
+                    <button class="btn btn-light" style="width: 100%; height: 300px;">
+                    Stockton</button>
+                    
                   </div>
                   <div class="dropdown mt-3">
                     

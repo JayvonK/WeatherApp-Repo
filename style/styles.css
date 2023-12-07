@@ -66,3 +66,7 @@ body {
 .dots{
     letter-spacing: 5.5px;
 }
+
+.offcanvas {
+    background-color: rgba(255, 255, 255, 0.70);
+}

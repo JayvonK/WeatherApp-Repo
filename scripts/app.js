@@ -43,6 +43,7 @@ let weekDay5 = document.getElementById("weekDay5");
 let exampleModal = document.getElementById("exampleModal");
 let modalBg = document.getElementById("modalBg");
 let body = document.getElementById("body");
+let heartBtn = document.getElementById("heartBtn");
 
 
 
@@ -60,7 +61,6 @@ async function success(pos) {
 function error(error) {
     console.log(error.message);
 }
-
 
 //API Call for current weather data
 async function CurrentApiCall(a, b, c) {
@@ -89,7 +89,6 @@ async function CurrentApiCall(a, b, c) {
     weekDay3.innerText = weekDayArray[2];
     weekDay4.innerText = weekDayArray[3];
     weekDay5.innerText = weekDayArray[4];
-
 }
 
 
@@ -119,10 +118,6 @@ async function FiveDayApiCall(a, b, c) {
         + Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max)));
 
 
-
-
-
-
     //Current Day 3 segment Temp
     console.log("9am temp: " + Math.floor((data.list[0].main.temp)) + ", Noon temp: " + Math.floor((data.list[2].main.temp)) + ", 9pm temp: " + Math.floor((data.list[4].main.temp)));
 
@@ -136,29 +131,14 @@ async function FiveDayApiCall(a, b, c) {
     thirdHrIcon.src = ChangeIcon(data.list[4].weather[0].icon);
 
 
-
-
-
-
-
     //Displaying Max temps for 5 day forecast
     highTemp1.innerText = Math.floor(HighTemp(data.list[0].main.temp_max, data.list[1].main.temp_max, data.list[2].main.temp_max, data.list[3].main.temp_max, data.list[4].main.temp_max, data.list[5].main.temp_max, data.list[6].main.temp_max, data.list[7].main.temp_max)) + "°F";
-
-
-
-
 
 
     highTemp2.innerText = Math.floor(HighTemp(data.list[8].main.temp_max, data.list[9].main.temp_max, data.list[10].main.temp_max, data.list[11].main.temp_max, data.list[12].main.temp_max, data.list[13].main.temp_max, data.list[14].main.temp_max, data.list[15].main.temp_max)) + "°F";
 
 
-
-
-
     highTemp3.innerText = Math.floor(HighTemp(data.list[16].main.temp_max, data.list[17].main.temp_max, data.list[18].main.temp_max, data.list[19].main.temp_max, data.list[20].main.temp_max, data.list[21].main.temp_max, data.list[22].main.temp_max, data.list[23].main.temp_max)) + "°F";
-
-
-
 
 
     highTemp4.innerText = Math.floor(HighTemp(data.list[24].main.temp_max, data.list[25].main.temp_max, data.list[26].main.temp_max, data.list[27].main.temp_max, data.list[28].main.temp_max, data.list[29].main.temp_max, data.list[30].main.temp_max, data.list[31].main.temp_max)) + "°F";
@@ -166,13 +146,18 @@ async function FiveDayApiCall(a, b, c) {
 
     highTemp5.innerText = Math.floor(HighTemp(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max, data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max, data.list[38].main.temp_max, data.list[39].main.temp_max)) + "°F";
 
+
     lowTemp1.innerText = Math.floor(LowestTemp(data.list[0].main.temp_min, data.list[1].main.temp_min, data.list[2].main.temp_min, data.list[3].main.temp_min, data.list[4].main.temp_min, data.list[5].main.temp_min, data.list[6].main.temp_min, data.list[7].main.temp_min)) + "°F";
+
 
     lowTemp2.innerText = Math.floor(LowestTemp(data.list[8].main.temp_min, data.list[9].main.temp_min, data.list[10].main.temp_min, data.list[11].main.temp_min, data.list[12].main.temp_min, data.list[13].main.temp_min, data.list[14].main.temp_min, data.list[15].main.temp_min)) + "°F";
 
+
     lowTemp3.innerText = Math.floor(LowestTemp(data.list[16].main.temp_min, data.list[17].main.temp_min, data.list[18].main.temp_min, data.list[19].main.temp_min, data.list[20].main.temp_min, data.list[21].main.temp_min, data.list[22].main.temp_min, data.list[23].main.temp_min)) + "°F";
 
+
     lowTemp4.innerText = Math.floor(LowestTemp(data.list[24].main.temp_min, data.list[25].main.temp_min, data.list[26].main.temp_min, data.list[27].main.temp_min, data.list[28].main.temp_min, data.list[29].main.temp_min, data.list[30].main.temp_min, data.list[31].main.temp_min)) + "°F";
+
 
     lowTemp5.innerText = Math.floor(LowestTemp(data.list[32].main.temp_min, data.list[33].main.temp_min, data.list[34].main.temp_min, data.list[35].main.temp_min, data.list[36].main.temp_min, data.list[37].main.temp_min, data.list[38].main.temp_min, data.list[39].main.temp_min)) + "°F";
 
@@ -242,7 +227,6 @@ async function FiveDayApiCall(a, b, c) {
             console.log(data.list[i].weather[0].description);
         }
     }
-
 }
 
 let cityList;
@@ -255,20 +239,20 @@ async function CityList() {
     cityList = data;
 }
 
-function FindCity(){
+function FindCity() {
     let input = userInput.value.toLowerCase();
     let search = false;
-    
-    for(let i = 0; i < cityList.length; i++){
+
+    for (let i = 0; i < cityList.length; i++) {
         let city = cityList[i].name.toLowerCase();
 
-        if(input === city){
+        if (input === city) {
             search = true;
         }
     }
-    if(search === true){
+    if (search === true) {
         Search(input);
-    }else{
+    } else {
         body.className = "modal-open";
         body.style = "overflow: hidden; padding-right: 0px;";
         exampleModal.className = "modal fade show";
@@ -278,10 +262,9 @@ function FindCity(){
         exampleModal.role = "dialog";
         modalBg.className = "modal-backdrop fade show";
     }
-
 }
 
-exampleModal.addEventListener('click', function(e){
+exampleModal.addEventListener('click', function (e) {
     body.className = "";
     body.style = "";
     exampleModal.className = "modal fade";
@@ -291,34 +274,69 @@ exampleModal.addEventListener('click', function(e){
     modalBg.className = "";
 })
 
+
+
 CityList();
 
 
-searchBtn.addEventListener('click', function (e){
+searchBtn.addEventListener('click', function (e) {
     FindCity();
 })
+
+let heart = heartBtn.src;
+
+heartBtn.addEventListener('click', function(e){
+    if(heartBtn.src === heart){
+        heartBtn.src = "./assets/heart (1).svg";
+    }else{
+        heartBtn.src = "./assets/heart.svg";
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function convertUnixTimeToTimeZone(unixTime, timeZone) {
     const date = new Date(unixTime * 1000); // Convert Unix time to milliseconds
-  
+
     // Get the local time zone offset in minutes
     const localOffset = date.getTimezoneOffset();
-  
+
     // Create a new Date object adjusted for the target time zone
     const targetDate = new Date(date.getTime() + localOffset * 60 * 1000);
     const targetOffset = timeZone * 60 * 60 * 1000; // Convert time zone to milliseconds
-  
+
     // Apply the time zone offset
     const convertedTime = new Date(targetDate.getTime() + targetOffset);
     console.log(convertedTime);
-  
+
     return convertedTime.toLocaleString(); // Return the converted time in a readable format
-  }
-  
-  // Example usage:
-  const unixTimestamp = 1701894551; // Replace this with your Unix timestamp
-  const targetTimeZone = -8; // Replace this with the target time zone offset in hours (e.g., -5 for EST)
-  
-  const convertedTime = convertUnixTimeToTimeZone(unixTimestamp, targetTimeZone);
-  console.log(`Converted Time: ${convertedTime}`);
+}
+
+// Example usage:
+const unixTimestamp = 1701894551; // Replace this with your Unix timestamp
+const targetTimeZone = -8; // Replace this with the target time zone offset in hours (e.g., -5 for EST)
+
+const convertedTime = convertUnixTimeToTimeZone(unixTimestamp, targetTimeZone);
+console.log(`Converted Time: ${convertedTime}`);
