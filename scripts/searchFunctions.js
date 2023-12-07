@@ -22,6 +22,7 @@ async function SearchCurrent(cityName, k) {
     currTemp.innerText = Math.floor(data.main.temp);
     mainIcon.src = ChangeIcon(data.weather[0].icon);
     currCity.textContent = data.name;
+    currCityName = data.name;
     currWeather.innerText = data.weather[0].main;
     currTime.innerText = CurrentTime(data.dt);
     let dayValue = new Date(CurrentTime(data.dt)).getDay();

@@ -46,7 +46,8 @@ let body = document.getElementById("body");
 let heartBtn = document.getElementById("heartBtn");
 let favInject = document.getElementById("favInject");
 let currCityName;
-
+let favArray = [];
+let heart = heartBtn.src;
 
 
 navigator.geolocation.getCurrentPosition(success, error);
@@ -286,14 +287,25 @@ searchBtn.addEventListener('click', function (e) {
     FindCity();
 })
 
-let heart = heartBtn.src;
+
+
+
+
 
 heartBtn.addEventListener('click', function(e){
     if(heartBtn.src === heart){
         heartBtn.src = "./assets/heart (1).svg";
         AddFavCity(favInject, currCityName);
+        favArray.push(currCityName);
+
+        localStorage.setItem("favorites", JSON.stringify(favArray));
     }else{
         heartBtn.src = "./assets/heart.svg";
+
+        let index = favArray.indexOf(currCityName);
+
+        favArray.splice(index, 1);
+        localStorage.setItem("favorites", JSON.stringify(favArray));
     }
 })
 
