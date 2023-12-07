@@ -313,22 +313,36 @@ heartBtn.addEventListener('click', function (e) {
         } else {
             heartBtn.src = "./assets/heart (1).svg";
             favArray.push(CityName);
-            
+
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
         }
 
     } else {
-        heartBtn.src = "./assets/heart.svg";
+        if (searched === true) {
+            heartBtn.src = "./assets/heart.svg";
 
-        let index = favArray.indexOf(currCityName);
+            let index = favArray.indexOf(CityName);
 
-        favArray.splice(index, 1);
+            favArray.splice(index, 1);
 
-        localStorage.setItem("favorites", JSON.stringify(favArray));
-        favInject.innerHTML = "";
-        updateFav();
+            localStorage.setItem("favorites", JSON.stringify(favArray));
+            favInject.innerHTML = "";
+            updateFav();
+
+        } else {
+            heartBtn.src = "./assets/heart.svg";
+
+            let index = favArray.indexOf(currCityName);
+
+            favArray.splice(index, 1);
+
+            localStorage.setItem("favorites", JSON.stringify(favArray));
+            favInject.innerHTML = "";
+            updateFav();
+        }
+
     }
 })
 
