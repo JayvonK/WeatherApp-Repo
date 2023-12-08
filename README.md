@@ -1,5 +1,8 @@
 <!-- Notes 
 
+Peer reviewed By : Zahid Afsar
+Peer comment : I would like to say that this looks extremely identical to the adobe desgin. It works well and I can tell jayvon did put all his effort into this project. For the functionality everything works you could search, add to favorite, night/day mode, displays api data. However I would recommend that jayvon makes the hit box for the day/night mode smaller to only chage when you click the sun / moon because i can click above it to change it. Another thing is that you could add the change from fahrenheit to celcius from the orginal design. Other then that I cant find any more small things he can change. I would like to say that this weather app is amazing and I am impressed from it. 
+
 FUNCTIONALITY:
  1. Day and Night Mode
     - Once you click the sun, moon pops up on opposite side
