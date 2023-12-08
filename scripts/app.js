@@ -376,8 +376,23 @@ moon.addEventListener('click', function(e){
     }
 })
 
+function AddPastSearch(inject, search) {
+    let li = document.createElement("li");
 
+    let a = document.createElement("a");
+    a.className = "dropdown-item";
+    a.href = "#";
+    a.innerText = search;
 
+    li.appendChild(a);
+
+    li.addEventListener('click', function (e) {
+        Search(search);
+        searched = true;
+    })
+
+    inject.appendChild(li);
+}
 
 
 
@@ -405,4 +420,4 @@ const targetTimeZone = -8; // Replace this with the target time zone offset in h
 const convertedTime = convertUnixTimeToTimeZone(unixTimestamp, targetTimeZone);
 console.log(`Converted Time: ${convertedTime}`);
 
-export { favArray, pastSearchArray }
+export { favArray, pastSearchArray, AddPastSearch}
