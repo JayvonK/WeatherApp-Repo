@@ -5,7 +5,8 @@ body {
 }
 
 .bodyBg {
-    
+    background: rgb(158,219,252);
+    background: linear-gradient(90deg, rgba(158,219,252,1) 16%, rgba(202,165,228,1) 35%, rgba(202,165,228,1) 65%, rgba(83,102,241,1) 100%);
 }
 
 .bodyBg2{
@@ -21,8 +22,8 @@ background: linear-gradient(90deg, rgba(54,47,83,1) 16%, rgba(78,56,77,1) 35%, r
     background-color: #2f2f2f !important;
 }
 
-.tester {
-    fill: black;
+.black{
+    color: black;
 }
 
 .locationSize {
@@ -107,6 +108,11 @@ background: linear-gradient(90deg, rgba(54,47,83,1) 16%, rgba(78,56,77,1) 35%, r
     margin-top: -12px;
 }
 
+
+.hov:hover {
+    background-color: white;
+    cursor: pointer;
+}
 
 .dotLine {
     width: 1px;

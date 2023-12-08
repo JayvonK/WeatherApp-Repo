@@ -89,6 +89,7 @@ let day5Max;
 
 if (localStorage.getItem("favorites")) {
     favArray = JSON.parse(localStorage.getItem("favorites"));
+    console.log(favArray.length)
 }
 if (localStorage.getItem("pastSearches")) {
     pastSearchArray = JSON.parse(localStorage.getItem("pastSearches"));
@@ -600,7 +601,7 @@ day1box.addEventListener('click', function (e) {
         outerRow.appendChild(secondCol6);
 
         let card = document.createElement("div");
-        card.className = "card mt-4 forecastOpacity infoPadding";
+        card.className = "card mt-4 headerBg infoPadding";
 
         card.appendChild(outerRow);
 
@@ -618,6 +619,7 @@ day1box.addEventListener('click', function (e) {
 })
 
 day2box.addEventListener('click', function (e) {
+    console.log("2");
     if (injectMoreInfo.innerHTML === "") {
         injectMoreInfo.innerHTML = "";
 
@@ -627,15 +629,15 @@ day2box.addEventListener('click', function (e) {
 
         let dayH1 = document.createElement("h1");
         dayH1.className = "locationSize roboto";
-        dayH1.innerText = FindDay2(weekDayArray[2]).toUpperCase();
+        dayH1.innerText = FindDay2(weekDayArray[1]).toUpperCase();
 
         let h4Description = document.createElement("h4");
 
         h4Description.className = "roboto3";
-        for (let i = 16; i < 24; i++) {
+        for (let i = 8; i < 16; i++) {
 
             let maxTemp = Math.floor(fiveDayData.list[i].main.temp_max);
-            if (maxTemp === day1Max) {
+            if (maxTemp === day2Max) {
                 h4Description.innerText = fiveDayData.list[i].weather[0].description;
             }
         }
@@ -650,7 +652,7 @@ day2box.addEventListener('click', function (e) {
         let img1 = document.createElement("img");
         img1.className = "threeHrIcon";
         img1.alt = "a weather icon";
-        img1.src = ChangeIcon(fiveDayData.list[17].weather[0].icon);
+        img1.src = ChangeIcon(fiveDayData.list[9].weather[0].icon);
 
 
         let img1Div = document.createElement("div");
@@ -664,7 +666,7 @@ day2box.addEventListener('click', function (e) {
 
         let time1Temp = document.createElement("h1");
         time1Temp.className = "philosopher2";
-        time1Temp.innerText = Math.floor(fiveDayData.list[17].main.temp_max) + "°";
+        time1Temp.innerText = Math.floor(fiveDayData.list[9].main.temp_max) + "°";
 
 
         let time1Col = document.createElement("div");
@@ -681,7 +683,7 @@ day2box.addEventListener('click', function (e) {
         let img2 = document.createElement("img");
         img2.className = "threeHrIcon";
         img2.alt = "a weather icon";
-        img2.src = ChangeIcon(fiveDayData.list[20].weather[0].icon);
+        img2.src = ChangeIcon(fiveDayData.list[12].weather[0].icon);
 
 
         let img2Div = document.createElement("div");
@@ -695,7 +697,7 @@ day2box.addEventListener('click', function (e) {
 
         let time2Temp = document.createElement("h1");
         time2Temp.className = "philosopher2";
-        time2Temp.innerText = Math.floor(fiveDayData.list[20].main.temp_max) + "°";
+        time2Temp.innerText = Math.floor(fiveDayData.list[12].main.temp_max) + "°";
 
 
         let time2Col = document.createElement("div");
@@ -713,7 +715,7 @@ day2box.addEventListener('click', function (e) {
         let img3 = document.createElement("img");
         img3.className = "threeHrIcon";
         img3.alt = "a weather icon";
-        img3.src = ChangeIcon(fiveDayData.list[23].weather[0].icon);
+        img3.src = ChangeIcon(fiveDayData.list[15].weather[0].icon);
 
 
         let img3Div = document.createElement("div");
@@ -727,7 +729,7 @@ day2box.addEventListener('click', function (e) {
 
         let time3Temp = document.createElement("h1");
         time3Temp.className = "philosopher2";
-        time3Temp.innerText = Math.floor(fiveDayData.list[23].main.temp_max) + "°";
+        time3Temp.innerText = Math.floor(fiveDayData.list[15].main.temp_max) + "°";
 
 
         let time3Col = document.createElement("div");
@@ -758,7 +760,7 @@ day2box.addEventListener('click', function (e) {
         outerRow.appendChild(secondCol6);
 
         let card = document.createElement("div");
-        card.className = "card mt-4 forecastOpacity infoPadding";
+        card.className = "card mt-4 headerBg infoPadding";
 
         card.appendChild(outerRow);
 
@@ -774,7 +776,6 @@ day2box.addEventListener('click', function (e) {
     }
 
 })
-
 
 day3box.addEventListener('click', function (e) {
     if (injectMoreInfo.innerHTML === "") {
@@ -794,7 +795,7 @@ day3box.addEventListener('click', function (e) {
         for (let i = 16; i < 24; i++) {
 
             let maxTemp = Math.floor(fiveDayData.list[i].main.temp_max);
-            if (maxTemp === day1Max) {
+            if (maxTemp === day3Max) {
                 h4Description.innerText = fiveDayData.list[i].weather[0].description;
             }
         }
@@ -917,7 +918,7 @@ day3box.addEventListener('click', function (e) {
         outerRow.appendChild(secondCol6);
 
         let card = document.createElement("div");
-        card.className = "card mt-4 forecastOpacity infoPadding";
+        card.className = "card mt-4 headerBg infoPadding";
 
         card.appendChild(outerRow);
 
@@ -952,7 +953,7 @@ day4box.addEventListener('click', function (e) {
     for (let i = 24; i < 32; i++) {
 
         let maxTemp = Math.floor(fiveDayData.list[i].main.temp_max);
-        if (maxTemp === day1Max) {
+        if (maxTemp === day4Max) {
             h4Description.innerText = fiveDayData.list[i].weather[0].description;
         }
     }
@@ -1075,7 +1076,7 @@ day4box.addEventListener('click', function (e) {
     outerRow.appendChild(secondCol6);
 
     let card = document.createElement("div");
-    card.className = "card mt-4 forecastOpacity infoPadding";
+    card.className = "card mt-4 headerBg infoPadding";
 
     card.appendChild(outerRow);
 
@@ -1092,7 +1093,7 @@ day4box.addEventListener('click', function (e) {
 
 })
 
-day2box.addEventListener('click', function (e) {
+day5box.addEventListener('click', function (e) {
     if(injectMoreInfo.innerHTML === ""){
     injectMoreInfo.innerHTML = "";
 
@@ -1110,7 +1111,7 @@ day2box.addEventListener('click', function (e) {
     for (let i = 32; i < 40; i++) {
 
         let maxTemp = Math.floor(fiveDayData.list[i].main.temp_max);
-        if (maxTemp === day1Max) {
+        if (maxTemp === day5Max) {
             h4Description.innerText = fiveDayData.list[i].weather[0].description;
         }
     }
@@ -1233,7 +1234,7 @@ day2box.addEventListener('click', function (e) {
     outerRow.appendChild(secondCol6);
 
     let card = document.createElement("div");
-    card.className = "card mt-4 forecastOpacity infoPadding";
+    card.className = "card mt-4 headerBg infoPadding";
 
     card.appendChild(outerRow);
 

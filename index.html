@@ -28,11 +28,20 @@
         <div class="modal-content">
 
           <div class="modal-body" style="height: 60vh">
-            <h2>whoops.</h2>
-            <p>The city you tried searching for cannot be found.
+            <div class="row center"> 
+              <img src="./assets/icons8-no-location-66 (1).png" alt="" style="height: auto; width: 100px;">
+            </div>
+            <div class="row">
+              <h2 class="txtCenter">whoops.</h2>
+            <p class="txtCenter">The city you tried searching for cannot be found.
               <br>Please try another location
             </p>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Try another search ></button>
+            </div>
+            
+            <div class="row center"> 
+              <button type="button" class="btn btn-primary black" data-bs-dismiss="modal" style="width: 180px;"">Try another search ></button>
+            </div>
+           
           </div>
         </div>
       </div>
@@ -106,11 +115,6 @@
                   </div>
 
                 </div>
-
-
-
-
-
               </div>
             </div>
           </div>
@@ -157,7 +161,7 @@
         </div>
         <div class="row mt-3">
           <div class="col">
-            <div id="day1box" class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day1box" class="card borderR forecastOpacity hov" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay1" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day1Icon" src="" alt="...">
@@ -167,7 +171,7 @@
             </div>
           </div>
           <div class="col">
-            <div id="day2box" class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day2box" class="card borderR forecastOpacity hov" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay2" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day2Icon" src="" alt="...">
@@ -177,7 +181,7 @@
             </div>
           </div>
           <div class="col">
-            <div id="day3box" class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day3box" class="card borderR forecastOpacity hov" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay3" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day3Icon" src="" alt="...">
@@ -187,7 +191,7 @@
             </div>
           </div>
           <div class="col">
-            <div id="day4box" class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day4box" class="card borderR forecastOpacity hov" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay4" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day4Icon" src="" alt="...">
@@ -197,7 +201,7 @@
             </div>
           </div>
           <div class="col">
-            <div id="day5box" class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day5box" class="card borderR forecastOpacity hov" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay5" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day5Icon" src="" alt="...">
@@ -227,8 +231,6 @@
                 <div class="offcanvas-body">
                   <div id="favInject">
                     You have no Favorite Cities
-
-                    <button></button>
                   </div>
 
                 </div>
@@ -238,7 +240,8 @@
           </div>
           <div class="col"></div>
         </div>
-        <div class="row"></div>
+        <div class="row">
+        </div>
       </div>
       <div class="col"></div>
     </div>

@@ -7,6 +7,10 @@ function updateFav(){
     for(let i = 0; i < favArray.length;i++){
         AddFavCity(favInject, favArray[i]);
     }
+
+    if(favArray.length === 0){
+        favInject.innerText = "You Have No Favorite Places";
+    }
 }
 
 function updatePast(){
