@@ -28,7 +28,6 @@ async function SearchCurrent(cityName, k) {
     currCity.textContent = data.name;
     CityName = data.name;
     currWeather.innerText = data.weather[0].main;
-    currTime.innerText = TimeOnly(CurrentTime(data.dt));
     let dayValue = new Date(CurrentTime(data.dt)).getDay();
     currDay.innerText = FindDay(dayValue);
     console.log(data.dt);
@@ -139,13 +138,13 @@ async function Search5Day(cityName, k) {
 
 
     //3 Day Section
-    firstHrTemp.innerText = Math.floor((data.list[0].main.temp)) + "°F";
+    firstHrTemp.innerText = Math.floor((data.list[0].main.temp)) + "°";
     firstHrIcon.src = ChangeIcon(data.list[0].weather[0].icon);
 
-    secondHrTemp.innerText = Math.floor((data.list[2].main.temp)) + "°F";
+    secondHrTemp.innerText = Math.floor((data.list[2].main.temp)) + "°";
     secondHrIcon.src = ChangeIcon(data.list[2].weather[0].icon);
 
-    thirdHrTemp.innerText = Math.floor((data.list[4].main.temp)) + "°F";
+    thirdHrTemp.innerText = Math.floor((data.list[4].main.temp)) + "°";
     thirdHrIcon.src = ChangeIcon(data.list[4].weather[0].icon);
 }
 

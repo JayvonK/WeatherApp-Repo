@@ -11,6 +11,14 @@
 </head>
 
 <body id="body">
+
+  <div class="sun">
+    <img id="sun" src="./assets/sun-symbol.svg" alt="" style="border-radius: 50%;">
+  </div>
+
+  <div class="moon">
+    <img id="moon" src="" alt="" style="border-radius: 50%;">
+  </div>
   <div class="container-fluid">
     <!-- Button trigger modal -->
 
@@ -40,9 +48,16 @@
           <div class="col">
             <h1>climate.xchange</h1>
           </div>
-          <div class="col d-flex justify-content-end" style="border: none;">
-            <input id="userInput" class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
-            <button id="searchBtn" class="btn btn-outline-success" type="submit"><img src="./assets/search.svg" alt=""
+          <div class="col end" style="border: none;">
+
+            <div class="dropdown">
+              <input id="userInput" class="form-control me-4 dropdown-toggle" type="search" data-bs-toggle="dropdown"
+                aria-expanded="false" placeholder="Search" aria-label="Search" style="height: 100%;">
+              <ul id="pastSearchInject" class="dropdown-menu overflow-auto" style="width: 100%; max-height: 12vh;">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+              </ul>
+            </div>
+            <button id="searchBtn" class="btn btn-primary" type="submit"><img src="./assets/search.svg" alt=""
                 style="height: 25px;"></button>
           </div>
         </div>
@@ -64,24 +79,34 @@
                   <div class="col">
                     <h5 class="roboto" class="card-title locationSize"><span id="currCity">Stockton</span> </h5>
                   </div>
-                  <div class="col d-flex justify-content-end">
-                    <img id="heartBtn" src="./assets/heart.svg" alt="">
+                  <div class="col end">
+                    <img id="heartBtn" src="./assets/heart.svg" alt="" style="height: 70%;">
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col">
-                    <h6 class="card-subtitle mb-2 text-body-secondary philosopher" style="font-size: 125px;">
-                      <img class="mainIconSize" id="mainIcon" src="./assets/" alt="..."><span id="currTemp">54F</span>
+                  <div class="col-3 bottom">
+                    <img class="mainIconSize" id="mainIcon" src="./assets/" alt="...">
+                  </div>
+                  <div class="col-9">
+                    <h6 id="currTemp" class="card-subtitle mb-2 text-body-secondary philosopher"
+                      style="font-size: 125px; text-align: center;">
+                      54F
                     </h6>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: -13px;">
                   <div class="col">
-                    <p class="dots">...........................................</p>
+                    <p class="dots">..........................................</p>
                   </div>
                 </div>
                 <div class="row">
-                  <p id="currWeather">Clear</p>
+                  <div class="col-5">
+                    <p class="philosopher" id="currWeather" style="font-size: 30px;">Clear</p>
+                  </div>
+                  <div class="col-7 end">
+                    <p class="philosopher" id="currHL" style="font-size: 30px;">H: 72F L:37F</p>
+                  </div>
+
                 </div>
 
 
@@ -94,30 +119,38 @@
           <div class="col">
             <div class="card borderR" style="width: 100%; height: 100%;">
               <div class="card-body mainCardPadd">
-                <div class="row">
+                <div class="row mb-4">
                   <div class="col">
-                    <h5 class="roboto" id="currDay" class="card-title locationSize">Today</h5>
+                    <h5 class="roboto" id="currDay" class="card-title locationSize">TODAY</h5>
                   </div>
-                  <div class="col">
+                  <div class="col end">
                     <h5 class="roboto" id="currTime" class="card-title locationSize">0:00</h5>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col">
-                    <h2>8 am</h2>
-                    <img id="firstHrIcon" src="..." alt="...">
-                    <h1 class="philosopher" id="firstHrTemp">32F</h1>
+                    <h4 class="roboto2">8 am</h4>
+                    <div class="center">
+                      <img class="threeHrIcon" id="firstHrIcon" src="..." alt="...">
+                    </div>
+                    <h1 class="philosopher2" id="firstHrTemp">32F</h1>
                   </div>
+                  <div class="dotLine">......................</div>
                   <div class="col">
-                    <h2>8 am</h2>
-                    <img id="secondHrIcon" src="..." alt="...">
-                    <h1 class="philosopher" id="secondHrTemp">32F</h1>
+                    <h4 class="roboto2">12 pm</h4>
+                    <div class="center">
+                      <img class="threeHrIcon" id="secondHrIcon" src="..." alt="...">
+                    </div>
+                    <h1 class="philosopher2" id="secondHrTemp">32F</h1>
                   </div>
+                  <div class="dotLine">......................</div>
                   <div class="col">
-                    <h2>8 am</h2>
-                    <img id="thirdHrIcon" src="..." alt="...">
-                    <h1 class="philosopher" id="thirdHrTemp">32F</h1>
+                    <h4 class="roboto2">8 pm</h4>
+                    <div class="center">
+                      <img class="threeHrIcon" id="thirdHrIcon" src="..." alt="...">
+                    </div>
+                    <h1 class="philosopher2" id="thirdHrTemp">32F</h1>
                   </div>
                 </div>
               </div>
@@ -128,73 +161,72 @@
           <div class="col">
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
-                <h5 id="weekDay1" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon black" id="day1Icon" src="" alt="...">
-                <p class="card-text"><span id="highTemp1">74F</span> | <span id="lowTemp1">34F</span></p>
+                <h5 id="weekDay1" class="card-title roboto3">Tue 12/8</h5>
+                <img class="forecastIcon " id="day1Icon" src="" alt="...">
+                <p class="card-text roboto4"><span id="highTemp1">74F</span> | <span id="lowTemp1">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
-                <h5 id="weekDay2" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon black" id="day2Icon" src="" alt="...">
-                <p class="card-text"><span id="highTemp2">74F</span> | <span id="lowTemp2">34F</span></p>
+                <h5 id="weekDay2" class="card-title roboto3">Tue 12/8</h5>
+                <img class="forecastIcon " id="day2Icon" src="" alt="...">
+                <p class="card-text roboto4"><span id="highTemp2">74F</span> | <span id="lowTemp2">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
-                <h5 id="weekDay3" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon black" id="day3Icon" src="" alt="...">
-                <p class="card-text"><span id="highTemp3">74F</span> | <span id="lowTemp3">34F</span></p>
+                <h5 id="weekDay3" class="card-title roboto3">Tue 12/8</h5>
+                <img class="forecastIcon " id="day3Icon" src="" alt="...">
+                <p class="card-text roboto4"><span id="highTemp3">74F</span> | <span id="lowTemp3">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
-                <h5 id="weekDay4" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon black" id="day4Icon" src="" alt="...">
-                <p class="card-text"><span id="highTemp4">74F</span> | <span id="lowTemp4">34F</span></p>
+                <h5 id="weekDay4" class="card-title roboto3">Tue 12/8</h5>
+                <img class="forecastIcon " id="day4Icon" src="" alt="...">
+                <p class="card-text roboto4"><span id="highTemp4">74F</span> | <span id="lowTemp4">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
-                <h5 id="weekDay5" class="card-title">Tue 12/8</h5>
-                <img class="forecastIcon black" id="day5Icon" src="" alt="...">
-                <p class="card-text"><span id="highTemp5">74F</span> | <span id="lowTemp5">34F</span></p>
+                <h5 id="weekDay5" class="card-title roboto3">Tue 12/8</h5>
+                <img class="forecastIcon " id="day5Icon" src="" alt="...">
+                <p class="card-text roboto4"><span id="highTemp5">74F</span> | <span id="lowTemp5">34F</span></p>
               </div>
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col"></div>
           <div class="col-5">
             <div class="row mt-4">
-              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+              <button class="btn btn-light" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 Open Your Favorite Places
               </button>
 
-              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.78%;">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Your Favorite Cities</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.75%;">
+                <div class="offcanvas-header ">
+                  <h5 class="offcanvas-title " id="offcanvasExampleLabel">Your Favorite Cities</h5>
+                  <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                   <div id="favInject">
                     You have no Favorite Cities
-                  </div>
-                  <div class="dropdown mt-3">
 
-
-                    </ul>
+                    <button></button>
                   </div>
+
                 </div>
               </div>
             </div>

@@ -28,25 +28,25 @@ function WeekDays(day) {
 
     switch (day) {
         case "Sunday":
-            return ["Mon", "Tue", "Wed", "Thu", "Fri"];
+            return ["MON", "TUE", "WED", "THU", "FRI"];
             break;
         case "Monday":
-            return ["Tue", "Wed", "Thu", "Fri", "Sat"];
+            return ["TUE", "WED", "THU", "FRI", "SAT"];
             break;
         case "Tuesday":
-            return ["Wed", "Thu", "Fri", "Sat", "Sun"];
+            return ["WED", "THU", "FRI", "SAT", "SUN"];
             break;
         case "Wednesday":
-            return ["Thu", "Fri", "Sat", "Sun", "Mon"];
+            return ["THU", "FRI", "SAT", "SUN", "MON"];
             break;
         case "Thursday":
-            return ["Fri", "Sat", "Sun", "Mon", "Tue"];
+            return ["FRI", "SAT", "SUN", "MON", "TUE"];
             break;
         case "Friday":
-            return ["Sat", "Sun", "Mon", "Tue", "Wed"];
+            return ["SAT", "SUN", "MON", "TUE", "WED"];
             break;
         case "Saturday":
-            return ["Sun", "Mon", "Tue", "Wed", "Thu"];
+            return ["SUN", "MON", "TUE", "WED", "THU"];
             break;
     }
 }

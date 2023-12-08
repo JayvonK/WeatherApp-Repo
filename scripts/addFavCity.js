@@ -10,8 +10,7 @@ function AddFavCity(inject, city){
         Search(city);
     })
     inject.appendChild(btn);
-
-
 }
+
 
 export { AddFavCity };

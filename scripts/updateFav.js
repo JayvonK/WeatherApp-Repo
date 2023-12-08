@@ -1,5 +1,6 @@
-import { favArray } from "./app.js";
+import { favArray, pastSearchArray } from "./app.js";
 import { AddFavCity } from "./addFavCity.js";
+import { AddPastSearch } from "./addPastSearch.js";
 
 
 function updateFav(){
@@ -9,4 +10,10 @@ function updateFav(){
     }
 }
 
-export { updateFav };
+function updatePast(){
+    for(let i = 0; i < pastSearchArray.length; i++){
+        AddPastSearch(pastSearchInject, pastSearchArray[i]);
+    }
+}
+
+export { updateFav, updatePast };

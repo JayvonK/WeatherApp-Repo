@@ -5,7 +5,7 @@ import { CurrentTime } from "./currentTime.js";
 import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay } from "./weekDayFunctions.js";
-import { updateFav } from "./updateFav.js";
+import { updateFav, updatePast} from "./updateFav.js";
 
 let mainIcon = document.getElementById("mainIcon");
 let day1Icon = document.getElementById("day1Icon");
@@ -36,6 +36,7 @@ let userInput = document.getElementById("userInput");
 let searchBtn = document.getElementById("searchBtn");
 let currTime = document.getElementById("currTime");
 let currDay = document.getElementById("currDay");
+let currHL = document.getElementById("currHL");
 let weekDay1 = document.getElementById("weekDay1");
 let weekDay2 = document.getElementById("weekDay2");
 let weekDay3 = document.getElementById("weekDay3");
@@ -46,17 +47,24 @@ let modalBg = document.getElementById("modalBg");
 let body = document.getElementById("body");
 let heartBtn = document.getElementById("heartBtn");
 let favInject = document.getElementById("favInject");
-let favSearch = document.getElementsByClassName("btn btn-light");
+let pastSearchInject = document.getElementById("pastSearchInject");
+let sun = document.getElementById("sun");
+let moon = document.getElementById("moon");
 let currCityName;
 let favArray = [];
+let pastSearchArray = []
 let heart = heartBtn.src;
 let searched = false;
 
 if (localStorage.getItem("favorites")) {
     favArray = JSON.parse(localStorage.getItem("favorites"));
 }
+if(localStorage.getItem("pastSearches")){
+    pastSearchArray = JSON.parse(localStorage.getItem("pastSearches"));
+}
 
 updateFav();
+updatePast();
 
 console.log(favArray);
 
@@ -96,6 +104,7 @@ async function CurrentApiCall(a, b, c) {
     currCityName = data.name;
     currWeather.innerText = data.weather[0].main;
     currTime.innerText = TimeOnly(CurrentTime(data.dt));
+    currHL.innerText = "H: " + Math.floor(data.main.temp_max) + "°F" + " L: " + Math.floor(data.main.temp_min) + "°F";
     let dayValue = new Date(CurrentTime(data.dt)).getDay();
 
     let weekDayArray = WeekDays(FindDay(dayValue));
@@ -142,13 +151,13 @@ async function FiveDayApiCall(a, b, c) {
     //Current Day 3 segment Temp
     // console.log("9am temp: " + Math.floor((data.list[0].main.temp)) + ", Noon temp: " + Math.floor((data.list[2].main.temp)) + ", 9pm temp: " + Math.floor((data.list[4].main.temp)));
 
-    firstHrTemp.innerText = Math.floor((data.list[0].main.temp)) + "°F";
+    firstHrTemp.innerText = Math.floor((data.list[0].main.temp)) + "°";
     firstHrIcon.src = ChangeIcon(data.list[0].weather[0].icon);
 
-    secondHrTemp.innerText = Math.floor((data.list[2].main.temp)) + "°F";
+    secondHrTemp.innerText = Math.floor((data.list[2].main.temp)) + "°";
     secondHrIcon.src = ChangeIcon(data.list[2].weather[0].icon);
 
-    thirdHrTemp.innerText = Math.floor((data.list[4].main.temp)) + "°F";
+    thirdHrTemp.innerText = Math.floor((data.list[4].main.temp)) + "°";
     thirdHrIcon.src = ChangeIcon(data.list[4].weather[0].icon);
 
 
@@ -257,6 +266,7 @@ async function CityList() {
 
 function FindCity() {
     let input = userInput.value.toLowerCase();
+    let input2 = userInput.value;
     let search = false;
 
     for (let i = 0; i < cityList.length; i++) {
@@ -268,6 +278,11 @@ function FindCity() {
     }
     if (search === true) {
         Search(input);
+        pastSearchArray.push(input2);
+        console.log(pastSearchArray);
+        localStorage.setItem("pastSearches", JSON.stringify(pastSearchArray));
+        pastSearchInject.innerHTML = "";
+        updatePast();
         searched = true;
     } else {
         body.className = "modal-open";
@@ -347,18 +362,19 @@ heartBtn.addEventListener('click', function (e) {
 })
 
 
+sun.addEventListener('click', function(e){
+    if(moon.src === moon.src){
+    sun.src = "";
+    moon.src = "./assets/full-moon-symbol.svg";
+    }
+})
 
-
-
-
-
-
-
-
-
-
-
-
+moon.addEventListener('click', function(e){
+    if(sun.src === sun.src){
+        moon.src = "";
+        sun.src = "./assets/sun-symbol.svg";
+    }
+})
 
 
 
@@ -389,4 +405,4 @@ const targetTimeZone = -8; // Replace this with the target time zone offset in h
 const convertedTime = convertUnixTimeToTimeZone(unixTimestamp, targetTimeZone);
 console.log(`Converted Time: ${convertedTime}`);
 
-export { favArray }
+export { favArray, pastSearchArray }
