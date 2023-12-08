@@ -1,7 +1,16 @@
 body {
-    background-image: url(../assets/gradient-background-backdrop-multicolor-colorful-vibrant-3840x2160-6723.png);
-    height: 100vh;
+    background: rgb(158,219,252);
+    background: linear-gradient(90deg, rgba(158,219,252,1) 16%, rgba(202,165,228,1) 35%, rgba(202,165,228,1) 65%, rgba(83,102,241,1) 100%);
     overflow: hidden;
+}
+
+.bodyBg {
+    
+}
+
+.bodyBg2{
+    background: rgb(54,47,83);
+background: linear-gradient(90deg, rgba(54,47,83,1) 16%, rgba(78,56,77,1) 35%, rgba(78,56,77,1) 65%, rgba(80,83,83,1) 100%);
 }
 
 .headerBg{
@@ -9,7 +18,7 @@ body {
 }
 
 .headerBg2{
-    background-color: #2f2f2f;
+    background-color: #2f2f2f !important;
 }
 
 .tester {
@@ -22,6 +31,10 @@ body {
 
 .mainCardPadd {
     padding: 6% 8% 4% 8%;
+}
+
+.infoPadding {
+    padding: 3% 4% 2% 4%;
 }
 
 .txtCenter {
@@ -53,7 +66,11 @@ body {
 }
 
 .forecastOpacity{
-    background-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.526);
+}
+
+.forecastOpacity2{
+    background: #2f2f2f81
 }
 
 .forecastIcon {
@@ -89,6 +106,7 @@ body {
     font-size: 60px;
     margin-top: -12px;
 }
+
 
 .dotLine {
     width: 1px;

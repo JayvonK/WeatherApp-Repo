@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./style/styles.css">
 </head>
 
-<body id="body">
+<body id="body" class="bodyBg">
 
   <div class="sun">
     <img id="sun" src="./assets/sun-symbol.svg" alt="" style="border-radius: 50%;">
@@ -46,7 +46,7 @@
       <div class="col-6">
         <div class="row">
           <div class="col">
-            <h1 id="title">climate.xchange</h1>
+            <h1 id="title" class="philosopher" style="margin-bottom: -2px;">climate.xchange</h1>
           </div>
           <div class="col end" style="border: none;">
 
@@ -56,8 +56,8 @@
               <ul id="pastSearchInject" class="dropdown-menu overflow-auto" style="width: 100%; max-height: 12vh;">
               </ul>
             </div>
-            <button id="searchBtn" class="btn btn-primary" type="submit"><img src="./assets/search.svg" alt=""
-                style="height: 25px;"></button>
+            <button id="searchBtn" class="btn btn-primary" type="submit" style="width: 60px;"><img
+                src="./assets/search.svg" alt="" style="height: 30px;"></button>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="row" style="margin-top: -13px;">
                   <div class="col">
-                    <p  id="dots1" class="dots">..........................................</p>
+                    <p id="dots1" class="dots">..........................................</p>
                   </div>
                 </div>
                 <div class="row">
@@ -116,7 +116,7 @@
           </div>
           <div class="col">
             <div id="card2" class="card borderR" style="width: 100%; height: 100%;">
-              <div  class="card-body mainCardPadd">
+              <div class="card-body mainCardPadd">
                 <div class="row mb-4">
                   <div class="col">
                     <h5 id="currDay" class="card-title roboto locationSize">TODAY</h5>
@@ -157,52 +157,58 @@
         </div>
         <div class="row mt-3">
           <div class="col">
-            <div class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day1box" class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay1" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day1Icon" src="" alt="...">
-                <p class="card-text roboto4"><span id="highTemp1">74F</span> | <span id="lowTemp1">34F</span></p>
+                <p id="split1" class="card-text roboto4"><span id="highTemp1">74F</span> | <span
+                    id="lowTemp1">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day2box" class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay2" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day2Icon" src="" alt="...">
-                <p class="card-text roboto4"><span id="highTemp2">74F</span> | <span id="lowTemp2">34F</span></p>
+                <p id="split2" class="card-text roboto4"><span id="highTemp2">74F</span> | <span
+                    id="lowTemp2">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day3box" class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay3" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day3Icon" src="" alt="...">
-                <p class="card-text roboto4"><span id="highTemp3">74F</span> | <span id="lowTemp3">34F</span></p>
+                <p id="split3" class="card-text roboto4"><span id="highTemp3">74F</span> | <span
+                    id="lowTemp3">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day4box" class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter ">
                 <h5 id="weekDay4" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day4Icon" src="" alt="...">
-                <p class="card-text roboto4"><span id="highTemp4">74F</span> | <span id="lowTemp4">34F</span></p>
+                <p id="split4" class="card-text roboto4"><span id="highTemp4">74F</span> | <span
+                    id="lowTemp4">34F</span></p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card borderR forecastOpacity" style="width: 100%;">
+            <div id="day5box" class="card borderR forecastOpacity" style="width: 100%;">
               <div class="card-body txtCenter">
                 <h5 id="weekDay5" class="card-title roboto3">Tue 12/8</h5>
                 <img class="forecastIcon " id="day5Icon" src="" alt="...">
-                <p class="card-text roboto4"><span id="highTemp5">74F</span> | <span id="lowTemp5">34F</span></p>
+                <p id="split5" class="card-text roboto4"><span id="highTemp5">74F</span> | <span
+                    id="lowTemp5">34F</span></p>
               </div>
             </div>
           </div>
         </div>
 
+        <div id="injectMoreInfo" class="row"></div>
         <div class="row">
           <div class="col"></div>
           <div class="col-5">
@@ -213,10 +219,10 @@
               </button>
 
               <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.75%;">
+                aria-labelledby="offcanvasExampleLabel" style="margin-top: 3.25%">
                 <div class="offcanvas-header ">
                   <h5 class="offcanvas-title " id="offcanvasExampleLabel">Your Favorite Cities</h5>
-                  <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  <button type="button" class="btn-close white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                   <div id="favInject">
@@ -232,11 +238,6 @@
           </div>
           <div class="col"></div>
         </div>
-        <div class="row">
-          <div class="d-flex justify-content-end">
-            <svg class="tester" height="400" viewBox="0 0 16 16" width="400" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="m15.504 13.616-3.79-3.223c-.392-.353-.811-.514-1.149-.499.895-1.048 1.435-2.407 1.435-3.893 0-3.314-2.686-6-6-6s-6 2.686-6 6 2.686 6 6 6c1.486 0 2.845-.54 3.893-1.435-.016.338.146.757.499 1.149l3.223 3.79c.552.613 1.453.665 2.003.115s.498-1.452-.115-2.003zm-9.504-3.616c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/></svg>
-          </div>
-          </div>
         <div class="row"></div>
       </div>
       <div class="col"></div>
@@ -244,7 +245,7 @@
 
   </div>
 
-  
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

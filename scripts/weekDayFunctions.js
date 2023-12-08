@@ -51,4 +51,30 @@ function WeekDays(day) {
     }
 }
 
-export { WeekDays, FindDay }
+function FindDay2(day) {
+    switch (day) {
+        case "SUN":
+            return "Sunday";
+            break;
+        case "MON":
+            return "Monday";
+            break;
+        case "TUE":
+            return "Tuesday";
+            break;
+        case "WED":
+            return "Wednesday";
+            break;
+        case "THU":
+            return "Thursday";
+            break;
+        case "FRI":
+            return "Friday";
+            break;
+        case "SAT":
+            return "Saturday";
+            break;
+    }
+}
+
+export { WeekDays, FindDay, FindDay2 }
