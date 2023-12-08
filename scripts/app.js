@@ -1302,6 +1302,4 @@ day5box.addEventListener('click', function (e) {
 
 
 
-
-
-export { favArray, pastSearchArray, AddPastSearch }
+export { favArray, pastSearchArray, AddPastSearch, favInject }

@@ -114,6 +114,16 @@ background: linear-gradient(90deg, rgba(54,47,83,1) 16%, rgba(78,56,77,1) 35%, r
     cursor: pointer;
 }
 
+.hov2:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.hov3:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
 .dotLine {
     width: 1px;
     line-height: 10px;

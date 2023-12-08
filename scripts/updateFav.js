@@ -11,6 +11,7 @@ function updateFav(){
     if(favArray.length === 0){
         favInject.innerText = "You Have No Favorite Places";
     }
+
 }
 
 function updatePast(){
