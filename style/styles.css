@@ -4,8 +4,16 @@ body {
     overflow: hidden;
 }
 
-.white {
+.headerBg{
     background-color: white;
+}
+
+.headerBg2{
+    background-color: #2f2f2f;
+}
+
+.tester {
+    fill: black;
 }
 
 .locationSize {
@@ -157,3 +165,6 @@ body {
     border-color: #bdb8f8;
 }
 
+.white {
+    color: white;
+}

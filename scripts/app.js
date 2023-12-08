@@ -7,6 +7,7 @@ import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay } from "./weekDayFunctions.js";
 import { updateFav, updatePast} from "./updateFav.js";
 
+let title = document.getElementById("title");
 let mainIcon = document.getElementById("mainIcon");
 let day1Icon = document.getElementById("day1Icon");
 let day2Icon = document.getElementById("day2Icon");
@@ -50,6 +51,15 @@ let favInject = document.getElementById("favInject");
 let pastSearchInject = document.getElementById("pastSearchInject");
 let sun = document.getElementById("sun");
 let moon = document.getElementById("moon");
+let dots1 = document.getElementById("dots1");
+let dots2 = document.getElementById("dots2");
+let dots3 = document.getElementById("dots3");
+let firstHrTime = document.getElementById("firstHrTime");
+let secondHrTime = document.getElementById("secondHrTime");
+let thirdHrTime = document.getElementById("thirdHrTime");
+let headerBg = document.getElementById("headerBg");
+let card1 = document.getElementById("card1");
+let card2 = document.getElementById("card2");
 let currCityName;
 let favArray = [];
 let pastSearchArray = []
@@ -366,6 +376,40 @@ sun.addEventListener('click', function(e){
     if(moon.src === moon.src){
     sun.src = "";
     moon.src = "./assets/full-moon-symbol.svg";
+    title.className = "white";
+    currCity.className = "white";
+    currTemp.className = "philosopher white";
+    currWeather.className = "philosopher white";
+    currHL.className = "philosopher white";
+    currDay.className = "card-title roboto locationSize white";
+    currTime.className = "card-title roboto locationSize white";
+    dots1.className = "dots white";
+    dots2.className = "dotLine white";
+    dots3.className = "dotLine white";
+    firstHrTime.className = "roboto2 white";
+    secondHrTime.className = "roboto2 white";
+    thirdHrTime.className = "roboto2 white";
+    firstHrTemp.className = "philosopher2 white";
+    secondHrTemp.className = "philosopher2 white";
+    thirdHrTemp.className = "philosopher2 white";
+    weekDay1.className = "card-title roboto3 white";
+    weekDay2.className = "card-title roboto3 white";
+    weekDay3.className = "card-title roboto3 white";
+    weekDay4.className = "card-title roboto3 white";
+    weekDay5.className = "card-title roboto3 white";
+    highTemp1.className = "white";
+    highTemp2.className = "white";
+    highTemp3.className = "white";
+    highTemp4.className = "white";
+    highTemp5.className = "white";
+    lowTemp1.className = "white";
+    lowTemp2.className = "white";
+    lowTemp3.className = "white";
+    lowTemp4.className = "white";
+    lowTemp5.className = "white";
+    headerBg.className = "row headerBg2 py-2";
+    card1.className = "card borderR headerBg2";
+    card2.className = "card borderR headerBg2";
     }
 })
 
