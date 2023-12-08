@@ -430,7 +430,8 @@ sun.addEventListener('click', function (e) {
         split3.className = "card-text roboto4 white";
         split4.className = "card-text roboto4 white";
         split5.className = "card-text roboto4 white";
-        body.className = "bodyBg2"
+        body.className = "bodyBg2";
+        favInject.className = "white";
     }
 })
 
@@ -438,6 +439,54 @@ moon.addEventListener('click', function (e) {
     if (sun.src === sun.src) {
         moon.src = "";
         sun.src = "./assets/sun-symbol.svg";
+        title.className = "philosopher";
+        currCity.className = "";
+        currTemp.className = "philosopher";
+        currWeather.className = "philosopher";
+        currHL.className = "philosopher";
+        currDay.className = "card-title roboto locationSize ";
+        currTime.className = "card-title roboto locationSize ";
+        dots1.className = "dots ";
+        dots2.className = "dotLine ";
+        dots3.className = "dotLine ";
+        firstHrTime.className = "roboto2 ";
+        secondHrTime.className = "roboto2 ";
+        thirdHrTime.className = "roboto2 ";
+        firstHrTemp.className = "philosopher2 ";
+        secondHrTemp.className = "philosopher2 ";
+        thirdHrTemp.className = "philosopher2 ";
+        weekDay1.className = "card-title roboto3 ";
+        weekDay2.className = "card-title roboto3 ";
+        weekDay3.className = "card-title roboto3 ";
+        weekDay4.className = "card-title roboto3 ";
+        weekDay5.className = "card-title roboto3 ";
+        highTemp1.className = "";
+        highTemp2.className = "";
+        highTemp3.className = "";
+        highTemp4.className = "";
+        highTemp5.className = "";
+        lowTemp1.className = "";
+        lowTemp2.className = "";
+        lowTemp3.className = "";
+        lowTemp4.className = "";
+        lowTemp5.className = "";
+        headerBg.className = "row headerBg py-2";
+        card1.className = "card borderR headerBg";
+        card2.className = "card borderR headerBg";
+        offcanvasExample.className = "offcanvas offcanvas-start headerBg";
+        offcanvasExampleLabel.className = "offcanvas-title ";
+        day1box.className = "card borderR forecastOpacity";
+        day2box.className = "card borderR forecastOpacity";
+        day3box.className = "card borderR forecastOpacity";
+        day4box.className = "card borderR forecastOpacity";
+        day5box.className = "card borderR forecastOpacity";
+        split1.className = "card-text roboto4 ";
+        split2.className = "card-text roboto4 ";
+        split3.className = "card-text roboto4 ";
+        split4.className = "card-text roboto4 ";
+        split5.className = "card-text roboto4 ";
+        body.className = "bodyBg";
+        favInject.className = "";
     }
 })
 
