@@ -71,6 +71,16 @@ WHAT I PLAN ON DOING 12/7:
 2. Finish all the front end
 3. Create function to display correct time
 
+WHAT I WAS ABLE TO DO 12/8:
+1. Finished most functionality
+2. Almost completed front end
+3. Got peer review
+
+WHAT I PLAN ON DOING 12/8:
+1. I plan on finishing the app over break
+2. Doing all my assigned break homework
+3. CODE EVERY DAY
+
 
 
 
