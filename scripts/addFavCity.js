@@ -13,6 +13,7 @@ function AddFavCity(inject, city){
 
     let firstCol = document.createElement("div");
     firstCol.className = "col-10 hov2";
+    firstCol.style = "text-align: start";
     firstCol.innerText = city;
 
     let secondCol = document.createElement("div");
