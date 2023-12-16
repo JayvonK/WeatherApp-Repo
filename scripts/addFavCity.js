@@ -5,7 +5,7 @@ import { updateFav } from "./updateFav.js";
 
 function AddFavCity(inject, city){
     let btn = document.createElement("button");
-    btn.className = "btn btn-light";
+    btn.className = "btn btn-light mb-3";
     btn.style = "width: 100%; height: 50px";
 
     let row = document.createElement("div");
