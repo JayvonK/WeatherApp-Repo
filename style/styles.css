@@ -119,11 +119,6 @@ background: linear-gradient(90deg, rgba(54,47,83,1) 16%, rgba(78,56,77,1) 35%, r
     cursor: pointer;
 }
 
-.hov3:hover {
-    background-color: white;
-    cursor: pointer;
-}
-
 .hov4:hover {
     background-color: rgb(87, 87, 87);
     cursor: pointer;
