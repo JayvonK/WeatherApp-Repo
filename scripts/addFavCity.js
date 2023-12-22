@@ -23,7 +23,6 @@ function AddFavCity(inject, city){
     img.src = "./assets/x-letter.svg";
     img.alt = "x button";
     img.style = "width: 15px; height: auto;";
-    img.className = "hov3";
 
     secondCol.appendChild(img);
 
