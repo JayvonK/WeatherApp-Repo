@@ -6,7 +6,7 @@ import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay, FindDay2 } from "./weekDayFunctions.js";
 import { updateFav, updatePast } from "./updateFav.js";
-import { AddToDB } from "./addToDB.js";
+import { AddToDB, DeleteFav } from "./addToDB.js";
 
 let title = document.getElementById("title");
 let mainIcon = document.getElementById("mainIcon");
@@ -352,7 +352,7 @@ heartBtn.addEventListener('click', function (e) {
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
-            AddToDB(currCityName);
+            AddToDB(CityName);
         }
 
     } else {
@@ -366,7 +366,7 @@ heartBtn.addEventListener('click', function (e) {
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
-            AddToDB(currCityName);
+            DeleteFav(CityName);
         } else {
             heartBtn.src = "./assets/heart.svg";
 
@@ -377,7 +377,7 @@ heartBtn.addEventListener('click', function (e) {
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
-            AddToDB(currCityName);
+            DeleteFav(currCityName);
         }
 
     }
