@@ -6,6 +6,7 @@ import { TimeOnly } from "./timOnly.js";
 import { ChangeIcon } from "./changeIcon.js";
 import { WeekDays, FindDay, FindDay2 } from "./weekDayFunctions.js";
 import { updateFav, updatePast } from "./updateFav.js";
+import { AddToDB } from "./addToDB.js";
 
 let title = document.getElementById("title");
 let mainIcon = document.getElementById("mainIcon");
