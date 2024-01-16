@@ -344,6 +344,7 @@ heartBtn.addEventListener('click', function (e) {
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
+            AddToDB(currCityName);
         } else {
             heartBtn.src = "./assets/heart (1).svg";
             favArray.push(CityName);
@@ -351,6 +352,7 @@ heartBtn.addEventListener('click', function (e) {
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
+            AddToDB(currCityName);
         }
 
     } else {
@@ -364,7 +366,7 @@ heartBtn.addEventListener('click', function (e) {
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
-
+            AddToDB(currCityName);
         } else {
             heartBtn.src = "./assets/heart.svg";
 
@@ -375,6 +377,7 @@ heartBtn.addEventListener('click', function (e) {
             localStorage.setItem("favorites", JSON.stringify(favArray));
             favInject.innerHTML = "";
             updateFav();
+            AddToDB(currCityName);
         }
 
     }
