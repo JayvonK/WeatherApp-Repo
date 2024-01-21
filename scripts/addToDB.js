@@ -1,7 +1,7 @@
 
 async function AddToDB(cityName)
 {
-    const promise = await fetch(`http://localhost:5056/FavoriteCities/AddCity/${cityName}`, {method: "POST"});
+    const promise = await fetch(`http://localhost:5056/FavoriteCities/AddCity/${cityName}`);
     console.log("I freaking work!");
 }
 
