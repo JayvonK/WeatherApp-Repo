@@ -1,8 +1,8 @@
 
-async function AddToDB(cityName)
+async function AddToDB()
 {
-    const promise = await fetch(`http://localhost:5056/FavoriteCities/AddCity/${cityName}`);
-    console.log("I freaking work!");
+    const promise = await fetch(`http://localhost:5056/FavoriteCities/GetFavorites`);
+    console.log(promise);
 }
 
 async function DeleteFav(cityName)
